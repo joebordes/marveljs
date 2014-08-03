@@ -20,11 +20,11 @@ angular.module('MarvelFeederApp',
 	])
 	.config(['$i18nextProvider', function ($i18nextProvider) {
     $i18nextProvider.options = {
-        lng: 'en',
+        lng: 'es',
         useCookie: false,
         useLocalStorage: false,
         fallbackLng: 'en',
-        resGetPath: 'locales/__lng__/__ns__.json',
+        resGetPath: 'locales/__lng__/translation.json',
         defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
     };
 	}]);
