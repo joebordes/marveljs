@@ -1,0 +1,35 @@
+<section id="main">
+  <a href="./#/comics"><- Back to comics list</a>
+  <nav id="secondary" class="main-nav">
+    <div class="comic-picture">
+      <div class="avatar">
+        <img ng-show="comic" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" />
+        {{comic.title}} {{comic.series.name}}
+      </div>
+    </div>
+    <div class="comic-status">
+      Issue: {{comic.issueNumber}}   <br/>
+      Pages: {{comic.pageCount}}<br/>
+      ISBN: {{comic.isbn}}<br/>
+      <a href="{{comic.urls[0].url}}" target="_blank">More Information...</a>
+    </div>
+  </nav>
+
+  <div class="main-content">
+    <table class="result-table">
+      <thead>
+        <tr><th colspan="5">Creators</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td> <td>Role</td>
+        </tr>
+        <tr ng-repeat="creator in creators">
+          <td>{{creator.name}}</td>
+          <td>{{creator.role}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>

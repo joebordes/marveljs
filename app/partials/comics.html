@@ -1,0 +1,16 @@
+<h2>Comic Listing</h2>
+<input type="text" ng-model="nameFilter" placeholder="Search..."/>
+  <table>
+    <thead>
+      <tr><th colspan="2">{{'Comic' | i18next}}</th><th>{{'Title' | i18next}}</th><th>{{'Series' | i18next}}</th><th>{{'Description' | i18next}}</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="comic in comicsList | filter: searchFilter">
+        <td>{{$index + 1}}</td>
+        <td><a href='#/comics/{{comic.id}}'><img width="100px" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" /></a></td>
+        <td><a href='#/comics/{{comic.id}}'>{{comic.title}}</a></td>
+        <td>{{comic.series.name}}</td>
+        <td>{{comic.description}}</td>
+      </tr>
+    </tbody>
+  </table>
