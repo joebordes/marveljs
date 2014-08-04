@@ -20,8 +20,8 @@ angular.module('MarvelFeederApp',
 	])
 	.config(['$i18nextProvider', function ($i18nextProvider) {
     $i18nextProvider.options = {
-        lng: 'es',
-        useCookie: false,
+        //lng: 'en',
+        useCookie: true,
         useLocalStorage: false,
         fallbackLng: 'en',
         resGetPath: 'locales/__lng__/translation.json',

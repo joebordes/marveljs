@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('MarvelFeederApp.controllers', [])
-	.controller('comicsController',function($scope, marvelAPIservice, Setup, md5) {
+	.controller('comicsController',function($scope, marvelAPIservice, Setup, md5, $i18next) {
 		$scope.nameFilter = null;
 		$scope.comicsList = [];
 		$scope.searchFilter = function(comic) {
@@ -11,6 +11,10 @@ angular.module('MarvelFeederApp.controllers', [])
 			return !$scope.nameFilter || keyword.test(comic.title)
 					|| keyword.test(comic.series.name);
 		};
+		$scope.changeLanguage = function (lng) {
+			$i18next.options.lng=lng;
+		}
+
 		marvelAPIservice.getComics().success(function(response) {
 			// Dig into the responde to get the relevant data
 			$scope.comicsList = response.data.results;
