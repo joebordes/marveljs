@@ -10,7 +10,7 @@ angular.module('MarvelFeederApp.services', [])
 		var marvelPublicKey = Setup.marvelPublicKey;
 		var marvelPrivateKey = Setup.marvelPrivateKey;
 		var marvelTS = 'OUR MARVEL PASS KEY';  // this can be any string
-		var marvelHash = md5.createHash(marvelTS + marvelPublicKey + marvelPrivateKey);
+		var marvelHash = md5.createHash(marvelTS + marvelPrivateKey + marvelPublicKey);
 		
 		marvelAPI.getComics = function() {
 			return $http({
