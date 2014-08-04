@@ -4,16 +4,18 @@
 
 angular.module('MarvelFeederApp.services', [])
   .value('version', '0.1')
-  .factory('marvelAPIservice',function($http) {
+  .factory('marvelAPIservice',function($http, Setup, md5) {
 		var marvelAPI = {};
-		var marvelPublicKey = "ba99d22dda91af1c4b3b7b41216fb469";
-		var marvelTS = "1406976137";
-		var marvelHash = "09703b7a59ab046d1711828ef300eb28";
+		var marvelAPIGateWay = Setup.marvelapi;
+		var marvelPublicKey = Setup.marvelPublicKey;
+		var marvelPrivateKey = Setup.marvelPrivateKey;
+		var marvelTS = 'OUR MARVEL PASS KEY';  // this can be any string
+		var marvelHash = md5.createHash(marvelTS + marvelPublicKey + marvelPrivateKey);
 		
 		marvelAPI.getComics = function() {
 			return $http({
 				method : 'JSONP',
-				url : 'http://gateway.marvel.com/v1/public/comics?apikey='
+				url : marvelAPIGateWay + 'comics?apikey='
 						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
@@ -21,7 +23,7 @@ angular.module('MarvelFeederApp.services', [])
 		marvelAPI.getComicDetails = function(comicid) {
 			return $http({
 				method : 'JSONP',
-				url : 'http://gateway.marvel.com/v1/public/comics/'+comicid+'?apikey='
+				url : marvelAPIGateWay + 'comics/'+comicid+'?apikey='
 						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
@@ -29,7 +31,7 @@ angular.module('MarvelFeederApp.services', [])
 		marvelAPI.getComicCreators = function(comicid) {
 			return $http({
 				method : 'JSONP',
-				url : 'http://gateway.marvel.com/v1/public/comics/'+comicid+'/creators?apikey='
+				url : marvelAPIGateWay + 'comics/'+comicid+'/creators?apikey='
 						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
@@ -37,7 +39,7 @@ angular.module('MarvelFeederApp.services', [])
 		marvelAPI.getComicEvents = function(comicid) {
 			return $http({
 				method : 'JSONP',
-				url : 'http://gateway.marvel.com/v1/public/comics/'+comicid+'/events?apikey='
+				url : marvelAPIGateWay + 'comics/'+comicid+'/events?apikey='
 						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});

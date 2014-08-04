@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('MarvelFeederApp.controllers', [])
-	.controller('comicsController',function($scope, marvelAPIservice) {
+	.controller('comicsController',function($scope, marvelAPIservice, Setup, md5) {
 		$scope.nameFilter = null;
 		$scope.comicsList = [];
 		$scope.searchFilter = function(comic) {
@@ -16,7 +16,7 @@ angular.module('MarvelFeederApp.controllers', [])
 			$scope.comicsList = response.data.results;
 		});
 	})
-	.controller('comicController', function($scope, $routeParams, marvelAPIservice) {
+	.controller('comicController', function($scope, $routeParams, marvelAPIservice, Setup, md5) {
 		$scope.id = $routeParams.id;
 		$scope.events = [];
 		$scope.creators = [];

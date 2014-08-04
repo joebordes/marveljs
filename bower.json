@@ -12,6 +12,7 @@
     "angular-mocks": "~1.2.x",
     "html5-boilerplate": "~4.3.0",
     "i18next": "~1.7.3",
-    "ng-i18next": "~0.3.3"
+    "ng-i18next": "~0.3.3",
+    "angular-md5": "~0.1.7"
   }
 }
