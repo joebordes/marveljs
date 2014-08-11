@@ -30,7 +30,7 @@ describe('marveljs', function() {
 	// checking if the comics attributes match against the expected values
 	it('should filter on SpiderMan comics', function () {
 		element(by.model('nameFilter')).sendKeys('Spider');
-		expect(element.all(by.tagName('tr')).count()).toBe(4); // 4 spidey comic rows plus header
+		expect(element.all(by.tagName('tr')).count()).toBe(6); // 5 spidey comic rows plus header
 	});
 
   });
