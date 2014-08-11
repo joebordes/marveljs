@@ -3,7 +3,7 @@
 angular.module('MarvelFeederApp',
 	[ 'ngRoute', 'marveljs.setup', 'MarvelFeederApp.filters', 'MarvelFeederApp.services',
 		'MarvelFeederApp.directives', 'MarvelFeederApp.controllers', 'angular-md5',
-		'MarvelFeederApp.controllers', 'MarvelFeederApp.services', 'jm.i18next'])
+		'MarvelFeederApp.controllers', 'MarvelFeederApp.services', 'jm.i18next','ui.bootstrap'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
 			templateUrl : 'partials/comics.html',
