@@ -3,10 +3,10 @@
 /* jasmine specs for controllers go here */
 
 describe('controllers', function(){
-	beforeEach(module('MarvelFeederApp'));
-  //beforeEach(module('MarvelFeederApp.controllers'));
-  //beforeEach(module('MarvelFeederApp.services'));
-  //beforeEach(module('MarvelFeederApp.ngRoute'));
+	beforeEach(module('MarvelJSApp'));
+  //beforeEach(module('MarvelJSApp.controllers'));
+  //beforeEach(module('MarvelJSApp.services'));
+  //beforeEach(module('MarvelJSApp.ngRoute'));
 
 
   it('should ....', inject(function($controller) {

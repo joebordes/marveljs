@@ -2,7 +2,7 @@
 
 /* Services */
 
-angular.module('MarvelFeederApp.services', [])
+angular.module('MarvelJSApp.services', [])
   .value('version', '0.1')
   .factory('marvelAPIservice',function($http, Setup, md5) {
 		var marvelAPI = {};

@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('MarvelFeederApp',
-	[ 'ngRoute', 'marveljs.setup', 'MarvelFeederApp.filters', 'MarvelFeederApp.services',
-		'MarvelFeederApp.directives', 'MarvelFeederApp.controllers', 'angular-md5',
-		'MarvelFeederApp.controllers', 'MarvelFeederApp.services', 'jm.i18next','ui.bootstrap'])
+angular.module('MarvelJSApp',
+	[ 'ngRoute', 'MarvelJSApp.setup', 'MarvelJSApp.filters', 'MarvelJSApp.services',
+		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5',
+		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next','ui.bootstrap'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
 			templateUrl : 'partials/comics.html',

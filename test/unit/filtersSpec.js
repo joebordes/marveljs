@@ -3,7 +3,7 @@
 /* jasmine specs for filters go here */
 
 describe('filter', function() {
-  beforeEach(module('MarvelFeederApp.filters'));
+  beforeEach(module('MarvelJSApp.filters'));
 
 
   describe('interpolate', function() {

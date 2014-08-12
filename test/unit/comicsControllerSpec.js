@@ -8,7 +8,7 @@ describe('comicsController', function (Setup, md5) {
 	var marvelHash = md5.createHash(marvelTS + marvelPrivateKey + marvelPublicKey);
 
 	// First, we load the app's module
-	beforeEach(module('MarvelFeederApp'));
+	beforeEach(module('MarvelJSApp'));
 
 	// Then we create some variables we're going to use
 	var comicsController, scope, httpMock;

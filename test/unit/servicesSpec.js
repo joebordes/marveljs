@@ -3,7 +3,7 @@
 /* jasmine specs for services go here */
 
 describe('service', function() {
-  beforeEach(module('MarvelFeederApp.services'));
+  beforeEach(module('MarvelJSApp.services'));
 
 
   describe('version', function() {

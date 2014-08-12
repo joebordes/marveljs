@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('MarvelFeederApp.controllers', [])
+angular.module('MarvelJSApp.controllers', [])
 	.controller('comicsController',function($scope, marvelAPIservice, Setup, md5, $i18next) {
 		$scope.nameFilter = null;
 		$scope.comicsList = [];
