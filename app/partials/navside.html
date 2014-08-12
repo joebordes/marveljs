@@ -1,13 +1,6 @@
 <div class="sidebar-collapse">
 	<ul class="nav" id="main-menu">
 		<li class="text-center"><img src="img/marvel.jpg" class="app-image img-responsive" /></li>
-
-		<li><a class="active-menu" href="#/comics"><i class="fa fa-file-image-o fa-2x  "></i>{{'Comics'|i18next}}</a></li>
-		<li><a href="#/characters"><i class="fa fa-female fa-2x  "></i>{{'Characters'|i18next}}</a></li>
-		<li><a href="#/creators"><i class="fa fa-graduation-cap fa-2x  "></i>{{'Creators'|i18next}}</a></li>
-		<li><a href="#/events"><i class="fa fa-eye fa-2x  "></i>{{'Events'|i18next}}</a></li>
-		<li><a href="#/series"><i class="fa fa-trophy fa-2x  "></i>{{'Series'|i18next}}</a></li>
-		<li><a href="#/stories"><i class="fa fa-video-camera fa-2x  "></i>{{'Stories'|i18next}}</a></li>
-		<li><a href="#/config"><i class="fa fa-edit fa-2x  "></i>{{'Settings'|i18next}}</a></li>
+		<li ng-repeat="mitem in menuitems"><a ng-class="{'active-menu': isActive('/{{mitem.path}}')}" href="#/{{mitem.path}}"><i class="fa {{mitem.faimg}} fa-2x  "></i>{{mitem.title|i18next}}</a></li>
 	</ul>
 </div>

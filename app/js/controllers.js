@@ -8,6 +8,58 @@ angular.module('MarvelJSApp.controllers', [])
 	$scope.messageurl = "http://marvel.com";
 	$scope.messagetxt = "Data provided by Marvel. &copy; 2014 MARVEL";
 })
+.controller('navsideCtrl',function($scope, Setup, $i18next, $location) {
+	$scope.menuitems = [ {
+		path: 'comics',
+		faimg: 'fa-file-image-o',
+		title: 'Comics'
+	}, {
+		path: 'characters',
+		faimg: 'fa-female',
+		title: 'Characters'
+	}, {
+		path: 'creators',
+		faimg: 'fa-graduation-cap',
+		title: 'Creators'
+	}, {
+		path: 'events',
+		faimg: 'fa-eye',
+		title: 'Events'
+	}, {
+		path: 'series',
+		faimg: 'fa-trophy',
+		title: 'Series'
+	}, {
+		path: 'stories',
+		faimg: 'fa-video-camera',
+		title: 'Stories'
+	}, {
+		path: 'config',
+		faimg: 'fa-edit',
+		title: 'Settings'
+	} ];
+	$scope.isActive = function (viewLocation) {
+		var active = (viewLocation === $location.path());
+		return active;
+	};
+})
+.controller('configCtrl',function($scope, Setup, $i18next, $filter) {
+	$scope.langs = [ {
+		name : i18n.t('English'),
+		code : 'en'
+	}, {
+		name : i18n.t('Spanish'),
+		code : 'es'
+	}];
+	var found = $filter('getById')($scope.langs, $i18next.options.lng, 'code');
+	if (found!=null) {
+		$scope.currentLang = found;
+	} else {
+		$scope.currentLang = $scope.langs[0];
+	}
+	$scope.mvpublickey = Setup.marvelPublicKey;
+	$scope.mvprivatekey = Setup.marvelPrivateKey;
+})
 .controller('comicsCtrl',function($scope, marvelAPIservice, Setup, md5, $i18next) {
 	$scope.nameFilter = null;
 	$scope.comicsList = [];
@@ -17,7 +69,7 @@ angular.module('MarvelJSApp.controllers', [])
 				|| keyword.test(comic.series.name);
 	};
 	$scope.changeLanguage = function (lng) {
-		$i18next.options.lng=lng;
+		$i18next.options.lng=lng.code;
 	}
 
 	marvelAPIservice.getComics().success(function(response) {
