@@ -16,5 +16,7 @@
 	"Spanish": "Spanish",
 	"Marvel Public Key": "Marvel Public Key",
 	"Marvel Private Key": "Marvel Private Key",
-	"MarvelKeyNotSaved": "These keys are not saved in the application. They are temporarly saved in your browser while you are using the application."
+	"MarvelKeyNotSaved": "These keys are not saved in the application. They are temporarly saved in your browser while you are using the application.",
+	"Disclaimer": "Disclaimer",
+	"MarvelJSDisclaimer": "This application is not endorsed in any way by the Marvel company. It is a personal initiative with the sole purpose to learn and test new programming skills. It is an open source project, availalbe on GitHub. I use the Marvel API simply to join two of my passions: programming and comics. The is licensed under a MIT License, so basically you can do as you please with it, although a reference to the origin is always welcome. The ode is distributed \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied."
 }
