@@ -14,6 +14,7 @@
     "i18next": "~1.7.3",
     "ng-i18next": "~0.3.3",
     "angular-md5": "~0.1.7",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "angular-sanitize": "~1.2.21"
   }
 }
