@@ -13,6 +13,10 @@ angular.module('MarvelJSApp',
 			templateUrl : 'partials/comic.html',
 			controller : 'comicCtrl'
 		});
+		$routeProvider.when('/characters', {
+			templateUrl : 'partials/characters.html',
+			controller : 'characterCtrl'
+		});
 		$routeProvider.when('/config', {
 			templateUrl : 'partials/config.html',
 			controller : 'configCtrl'
