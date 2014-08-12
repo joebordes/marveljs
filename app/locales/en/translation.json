@@ -2,5 +2,14 @@
 	"Comic": "Comic",
 	"Title": "Title",
 	"Series": "Series",
-	"Description": "Description"
+	"Description": "Description",
+	"Logout": "Logout",
+	"Comics": "Comics",
+	"Characters": "Characters",
+	"Creators": "Creators",
+	"Events": "Events",
+	"Series": "Series",
+	"Stories": "Stories",
+	"Settings": "Settings"
+	
 }

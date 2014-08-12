@@ -1,6 +1,6 @@
 'use strict';
 
-describe('comicsController', function (Setup, md5) {
+describe('comicsCtrl', function (Setup, md5) {
 	var marvelAPIGateWay = Setup.marvelapi;
 	var marvelPublicKey = Setup.marvelPublicKey;
 	var marvelPrivateKey = Setup.marvelPrivateKey;
@@ -11,7 +11,7 @@ describe('comicsController', function (Setup, md5) {
 	beforeEach(module('MarvelJSApp'));
 
 	// Then we create some variables we're going to use
-	var comicsController, scope, httpMock;
+	var comicsCtrl, scope, httpMock;
 
 	beforeEach(inject(function ($controller, $rootScope, $httpBackend) {
 		// Then we create an $httpBackend instance.
@@ -32,7 +32,7 @@ describe('comicsController', function (Setup, md5) {
 		scope = $rootScope.$new();
 
 		// Here, we actually initialize our controller, passing our new mock scope as parameter
-		comicsController = $controller('comicsController', {
+		comicsCtrl = $controller('comicsCtrl', {
 		$scope: scope
 		});
 

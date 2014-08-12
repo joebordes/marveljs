@@ -11,13 +11,13 @@ describe('controllers', function(){
 
   it('should ....', inject(function($controller) {
     //spec body
-    var myCtrl1 = $controller('comicsController', { $scope: {} });
+    var myCtrl1 = $controller('comicsCtrl', { $scope: {} });
     expect(myCtrl1).toBeDefined();
   }));
 
   it('should ....', inject(function($controller) {
     //spec body
-    var myCtrl2 = $controller('comicController', { $scope: {} });
+    var myCtrl2 = $controller('comicCtrl', { $scope: {} });
     expect(myCtrl2).toBeDefined();
   }));
 });

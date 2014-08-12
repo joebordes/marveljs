@@ -2,5 +2,13 @@
 	"Comic": "Cómic",
 	"Title": "Título",
 	"Series": "Serie",
-	"Description": "Descripción"
+	"Description": "Descripción",
+	"Logout": "Salir",
+	"Comics": "Comics",
+	"Characters": "Personajes",
+	"Creators": "Creadores",
+	"Events": "Eventos",
+	"Series": "Series",
+	"Stories": "Relatos",
+	"Settings": "Configuración"
 }
