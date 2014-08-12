@@ -15,16 +15,16 @@ angular.module('MarvelJSApp',
 		});
 		$routeProvider.when('/config', {
 			templateUrl : 'partials/config.html',
-			//controller : 'configCtrl'
+			controller : 'configCtrl'
 		});
 		$routeProvider.otherwise({
 			redirectTo : '/comics'
 		});
 	}
 	])
-	.config(['$i18nextProvider', function ($i18nextProvider) {
+	.config(['Setup','$i18nextProvider', function (Setup, $i18nextProvider) {
     $i18nextProvider.options = {
-        lng: 'en',
+        lng: Setup.language,
         useCookie: true,
         useLocalStorage: false,
         fallbackLng: 'en',

@@ -10,5 +10,11 @@
 	"Events": "Eventos",
 	"Series": "Series",
 	"Stories": "Relatos",
-	"Settings": "Configuración"
+	"Settings": "Configuración",
+	"Change language to": "Cambiar idioma a",
+	"English": "Inglés",
+	"Spanish": "Español",
+	"Marvel Public Key": "Clave Pública Marvel",
+	"Marvel Private Key": "Clave Privada Marvel",
+	"MarvelKeyNotSaved": "Estas claves no se guardan en la aplicación, solo se utilizan mientras esté abierta. Se guardan temporalmente en tu navegador."
 }

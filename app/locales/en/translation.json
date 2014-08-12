@@ -10,6 +10,11 @@
 	"Events": "Events",
 	"Series": "Series",
 	"Stories": "Stories",
-	"Settings": "Settings"
-	
+	"Settings": "Settings",
+	"Change language to": "Change language to",
+	"English": "English",
+	"Spanish": "Spanish",
+	"Marvel Public Key": "Marvel Public Key",
+	"Marvel Private Key": "Marvel Private Key",
+	"MarvelKeyNotSaved": "These keys are not saved in the application. They are temporarly saved in your browser while you are using the application."
 }
