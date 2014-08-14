@@ -43,28 +43,21 @@ angular.module('MarvelJSApp.controllers', [])
 		return active;
 	};
 })
-.controller('characterCtrl',function($scope, Setup, $i18next, $filter) {
-	 $scope.myData = [
-	                  {
-	                      "firstName": "Cox",
-	                      "lastName": "Carney",
-	                      "company": "Enormo",
-	                      "employed": true
-	                  },
-	                  {
-	                      "firstName": "Lorraine",
-	                      "lastName": "Wise",
-	                      "company": "Comveyer",
-	                      "employed": false
-	                  },
-	                  {
-	                      "firstName": "Nancy",
-	                      "lastName": "Waters",
-	                      "company": "Fuelton",
-	                      "employed": false
-	                  }
-	              ];
-	 $scope.mvprivatekey = Setup.marvelPrivateKey;
+.controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+		$scope.gridOptions = {};
+		$scope.mvData = [];
+		$scope.gridOptions.data = 'mvData';
+		$scope.gridOptions.columnDefs = [
+			{ field:'id', width:0 },
+			{ field:'image', displayName: 'Comic', width:100 },
+			{ field:'title', displayName: i18n.t('Title'), width:150 },
+			{ field:'series.name', width:150  },
+			{ field:'description', width:200  }
+		];
+		marvelAPIservice.getComics().success(function(response) {
+			$scope.mvData = response.data.results;
+		});
+
 })
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
 	$scope.langs = [ {
@@ -95,19 +88,9 @@ angular.module('MarvelJSApp.controllers', [])
 		$i18next.options.lng=lng.code;
 	}
 
-	$scope.gridOptions = {};
-	$scope.gridOptions.columnDefs = [
-	                                 { name:'id', width:0 },
-	                                 { name:'image', width:100 },
-	                                 { name:'title', width:150 },
-	                                 { name:'series.name', width:150  },
-	                                 { name:'description', width:200  }
-	                               ];
-
 	marvelAPIservice.getComics().success(function(response) {
 		// Dig into the responde to get the relevant data
 		$scope.comicsList = response.data.results;
-	      $scope.gridOptions.data = response.data.results;
 	});
 })
 .controller('comicCtrl', function($scope, $routeParams, marvelAPIservice, Setup, md5) {
