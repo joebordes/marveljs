@@ -1,4 +1,4 @@
-<div class="sidebar-collapse">
+<div class="sidebar-collapse" ng-show='menuShow'>
 	<ul class="nav" id="main-menu">
 		<li class="text-center"><img src="img/emaillogo.jpg" class="app-image img-responsive" /></li>
 		<li ng-repeat="mitem in menuitems"><a ng-class="{'active-menu': isActive('/{{mitem.path}}')}" href="#/{{mitem.path}}"><i class="fa {{mitem.faimg}} fa-2x  "></i>{{mitem.title|i18next}}</a></li>

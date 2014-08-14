@@ -3,12 +3,22 @@
 /* Controllers */
 
 angular.module('MarvelJSApp.controllers', [])
-.controller('navtopCtrl',function($scope, Setup, $i18next) {
+.controller('navigationCtrl',function($scope, Setup, $i18next, $window, $location) {
 	$scope.appname = Setup.app;
 	$scope.messageurl = "http://marvel.com";
 	$scope.messagetxt = "Data provided by Marvel. &copy; 2014 MARVEL";
-})
-.controller('navsideCtrl',function($scope, Setup, $i18next, $location) {
+	$(window).bind('resize', function() {
+		if ($window.innerWidth < 768) {
+			$scope.menuShow = false;
+		} else {
+			$scope.menuShow = true;
+		}
+		$scope.$apply();
+	});
+	$scope.menuShow = true;
+	$scope.toggleMenu = function() {
+		$scope.menuShow = !$scope.menuShow;
+	};
 	$scope.menuitems = [ {
 		path: 'comics',
 		faimg: 'fa-file-image-o',

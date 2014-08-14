@@ -19,8 +19,10 @@
 </head>
 <body>
 <div id="wrapper" ng-app="MarvelJSApp">
-<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0" ng-controller="navtopCtrl" ng-include="'partials/navtop.html'"></nav>
-<nav class="navbar-default navbar-side" role="navigation" ng-controller="navsideCtrl" ng-include="'partials/navside.html'"></nav>
+<div ng-controller="navigationCtrl">
+<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0"  ng-include="'partials/navtop.html'"></nav>
+<nav class="navbar-default navbar-side" role="navigation" ng-include="'partials/navside.html'"></nav>
+</div>
 <div id="page-wrapper" class="container-fluid"><ng-view></ng-view></div>
 </div>
   <!--[if lt IE 7]>
