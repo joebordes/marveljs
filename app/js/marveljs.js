@@ -3,7 +3,7 @@
 angular.module('MarvelJSApp',
 	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters', 'MarvelJSApp.services',
 		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5',
-		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next','ui.bootstrap'])
+		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next','ui.bootstrap','ngGrid'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
 			templateUrl : 'partials/comics.html',
