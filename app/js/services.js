@@ -44,6 +44,14 @@ angular.module('MarvelJSApp.services', [])
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
 		}
+		marvelAPI.getCharacters = function() {
+			return $http({
+				method : 'JSONP',
+				url : marvelAPIGateWay + 'characters?apikey='
+						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
+						+ marvelHash + '&callback=JSON_CALLBACK'
+			});
+		}
 
 		return marvelAPI;
 	}
