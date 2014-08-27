@@ -17,6 +17,10 @@ angular.module('MarvelJSApp',
 			templateUrl : 'partials/characters.html',
 			controller : 'characterCtrl'
 		});
+		$routeProvider.when('/creators', {
+			templateUrl : 'partials/creators.html',
+			controller : 'creatorsCtrl'
+		});
 		$routeProvider.when('/config', {
 			templateUrl : 'partials/config.html',
 			controller : 'configCtrl'

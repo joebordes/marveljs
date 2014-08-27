@@ -52,6 +52,14 @@ angular.module('MarvelJSApp.services', [])
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
 		}
+		marvelAPI.getCreators = function() {
+			return $http({
+				method : 'JSONP',
+				url : marvelAPIGateWay + 'creators?apikey='
+						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
+						+ marvelHash + '&callback=JSON_CALLBACK'
+			});
+		}
 
 		return marvelAPI;
 	}
