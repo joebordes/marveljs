@@ -1,1 +1,17 @@
 <h3>Series</h3>
+    <table st-table="seriesList" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="serie in seriesList">
+            <td><img width="100px" src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" /></td>
+            <td>{{ serie.title }}</td>
+            <td>{{ serie.description }}</td>
+        </tr>
+        </tbody>
+    </table>

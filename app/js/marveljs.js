@@ -2,7 +2,7 @@
 
 angular.module('MarvelJSApp',
 	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters', 'MarvelJSApp.services',
-		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','datatables',
+		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','datatables', 'smart-table',
 		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next','ui.bootstrap','ngGrid'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
