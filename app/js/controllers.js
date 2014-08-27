@@ -101,6 +101,14 @@ angular.module('MarvelJSApp.controllers', [])
 	});
 
 })
+.controller('seriesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+		$scope.seriesList = [];
+		marvelAPIservice.getSeries().success(function(response) {
+			console.log(response.data);
+			$scope.seriesList = response.data.results;
+		});
+
+})
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
 	$scope.langs = [ {
 		name : i18n.t('English'),
