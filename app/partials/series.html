@@ -1,11 +1,21 @@
 <h3>Series</h3>
+<div class="table-responsive">
     <table st-table="seriesList" class="table table-striped">
         <thead>
         <tr>
             <th>Image</th>
-            <th>Title</th>
+            <th st-sort="title">Title</th>
             <th>Description</th>
         </tr>
+        <tr>
+			<th>
+				<input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+			</th>
+			<th>
+				<input st-search="'title'" placeholder="search for title" class="input-sm form-control" type="search"/>
+			</th>
+			<th></th>
+		</tr>
         </thead>
         <tbody>
         <tr ng-repeat="serie in seriesList">
@@ -14,4 +24,12 @@
             <td>{{ serie.description }}</td>
         </tr>
         </tbody>
+        <tfoot>
+			<tr>
+				<td colspan="3" class="text-center">
+					<div st-pagination="" st-items-by-page="5" st-displayed-pages="7"></div>
+				</td>
+			</tr>
+		</tfoot>
     </table>
+</div>

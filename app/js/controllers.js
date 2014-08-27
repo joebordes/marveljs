@@ -102,12 +102,12 @@ angular.module('MarvelJSApp.controllers', [])
 
 })
 .controller('seriesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
-		$scope.seriesList = [];
-		marvelAPIservice.getSeries().success(function(response) {
-			console.log(response.data);
-			$scope.seriesList = response.data.results;
-		});
-
+	$scope.seriesList = [];
+	marvelAPIservice.getSeries().success(function(response) {
+		$scope.seriesList = response.data.results;
+	});
+	$scope.predicates = ['title', 'description', 'thumbnail'];
+	$scope.selectedPredicate = $scope.predicates[0];
 })
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
 	$scope.langs = [ {
