@@ -1,1 +1,27 @@
-<div class="gridStyle row-fluid" ng-grid="gridOptions"></div>
+  <div class="main-content">
+  <h3>{{'Creators' | i18next}}</h3>
+  <div class="tablesaw-bar mode-columntoggle">
+    <div class="tablesaw-columntoggle-btnwrap tablesaw-advance right ">
+      <a href="#table-3876-popup" class="btn btn-micro tablesaw-columntoggle-btn tablesaw-nav-btn" data-popup-link=""><span>Columns</span></a>
+        <div class="dialog-table-coltoggle tablesaw-columntoggle-popup dialog-content" id="table-3876-popup" role="dialog" tabindex="0">
+          <div class="btn-group">
+            <label><input type="checkbox" checked="">Rank</label>
+            <label><input type="checkbox" checked="">Year</label>
+            <label><input type="checkbox" checked="">Rating</label>
+            <label><input type="checkbox" checked="">Reviews</label>
+          </div>
+        </div>
+    </div>
+  </div>
+    <table class="tablesaw tablesaw-columntoggle" data-mode="columntoggle" data-minimap>
+      <thead>
+        <tr><th data-priority="4">{{'Image' | i18next}}</th> <th data-priority="6">{{'Name' | i18next}}</th></tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="creator in creatorList">
+          <td><img width="100px" src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}" /></td>
+          <td>{{creator.fullName}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

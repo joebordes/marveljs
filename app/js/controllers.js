@@ -72,19 +72,9 @@ angular.module('MarvelJSApp.controllers', [])
 
 })
 .controller('creatorsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
-		$scope.gridOptions = {};
-		$scope.mvData = [];
-		$scope.gridOptions = {
-			data: 'mvData',
-			rowHeight: 100,
-			columnDefs: [
-			{ field:'thumbnail', displayName: i18n.t('Image'),
-				cellTemplate: '<img src="{{row.getProperty(\'thumbnail\').path}}.{{row.getProperty(\'thumbnail\').extension }}" style="max-width:100px"/>',
-				width:100, height:100 },
-			{ field:'fullName', displayName: i18n.t('Creator')}
-		]};
+		$scope.creatorList = [];
 		marvelAPIservice.getCreators().success(function(response) {
-			$scope.mvData = response.data.results;
+			$scope.creatorList = response.data.results;
 		});
 
 })
