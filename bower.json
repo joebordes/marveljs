@@ -19,6 +19,7 @@
     "angular-animate": "~1.2.21",
     "angular-touch": "~1.2.21",
     "jquery": "~2.1.1",
-    "ng-grid": "~2.0.12"
+    "ng-grid": "~2.0.12",
+    "angular-datatables": "~0.1.0"
   }
 }

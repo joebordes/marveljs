@@ -1,0 +1,16 @@
+    <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumns" class="row-border hover">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="event in eventsList">
+            <td><img width="100px" src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" /></td>
+            <td>{{ event.title }}</td>
+            <td>{{ event.description }}</td>
+        </tr>
+        </tbody>
+    </table>

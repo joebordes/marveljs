@@ -78,11 +78,27 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 
 })
-.controller('eventsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
-		$scope.eventsList = [];
-		marvelAPIservice.getEvents().success(function(response) {
-			$scope.eventsList = response.data.results;
-		});
+.controller('eventsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice, DTOptionsBuilder, DTColumnBuilder) {
+	//$scope.dtOptions = [];
+//	marvelAPIservice.getEvents().success(function(response) {
+//		console.log(response.data);
+//		return response.data.results;
+//	});
+	//$scope.dtOptions = DTOptionsBuilder.fromSource(marvelAPIservice.getEvents).withPaginationType('full_numbers');
+	//$scope.dtOptions = DTOptionsBuilder.fromFnPromise(marvelAPIservice.getEvents)
+	//.withFnServerData(marvelAPIservice.getEvents)
+	//	.withDataProp('data.results')
+	//	.withPaginationType('full_numbers');
+	$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(2);
+	$scope.dtColumns = [
+		DTColumnBuilder.newColumn('end').withTitle('Image'),
+		DTColumnBuilder.newColumn('title').withTitle('title'),
+		DTColumnBuilder.newColumn('description').withTitle('Description')
+	];
+	$scope.eventsList = [];
+	marvelAPIservice.getEvents().success(function(response) {
+		$scope.eventsList = response.data.results;
+	});
 
 })
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
