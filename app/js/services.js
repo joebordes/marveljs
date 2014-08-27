@@ -60,6 +60,14 @@ angular.module('MarvelJSApp.services', [])
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
 		}
+		marvelAPI.getEvents = function() {
+			return $http({
+				method : 'JSONP',
+				url : marvelAPIGateWay + 'events?apikey='
+						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
+						+ marvelHash + '&callback=JSON_CALLBACK'
+			});
+		}
 
 		return marvelAPI;
 	}

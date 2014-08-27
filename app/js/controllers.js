@@ -78,6 +78,13 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 
 })
+.controller('eventsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+		$scope.eventsList = [];
+		marvelAPIservice.getEvents().success(function(response) {
+			$scope.eventsList = response.data.results;
+		});
+
+})
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
 	$scope.langs = [ {
 		name : i18n.t('English'),
