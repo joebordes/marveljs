@@ -47,6 +47,10 @@ angular.module('MarvelJSApp.controllers', [])
 		path: 'config',
 		faimg: 'fa-edit',
 		title: 'Settings'
+	}, {
+		path: 'conclusion',
+		faimg: 'fa-life-ring',
+		title: 'Conclusion'
 	} ];
 	$scope.isActive = function (viewLocation) {
 		var active = (viewLocation === $location.path());
@@ -115,6 +119,112 @@ angular.module('MarvelJSApp.controllers', [])
 		$scope.storiesList = response.data.results;
 		console.log(response.data);
 	});
+})
+.controller('conclusionCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+	$scope.evaledList = [
+	  {
+		name: 'Tablesaw',
+		url: 'http://filamentgroup.com/lab/tablesaw.html'
+	  },
+	  {
+		name: 'angularjs_datatables',
+		url: 'http://l-lin.github.io/angular-datatables/#/welcome'
+	  },
+	  {
+		name: 'SmartTables',
+		url: 'https://github.com/lorenzofox3/Smart-Table'
+	  },
+	  {
+		name: 'trNgGrid',
+		url: 'http://moonstorm.github.io/trNgGrid/release/'
+	  },
+	  {
+		name: 'adapt_strap',
+		url: 'http://adaptv.github.io/adapt-strap/',
+	  }
+	];
+	$scope.conclusionList = {
+		ajsnative: {
+			Tablesaw: 0.2,
+			angularjs_datatables: 0.5,
+			SmartTables: 1,
+			trNgGrid: 1,
+			adapt_strap: 1
+		},
+		responsive: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		inlineedit: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		customcell: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		paging: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		rest: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		search: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		easy: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		features: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		},
+		maturity: {
+			Tablesaw: 0,
+			angularjs_datatables: 0,
+			SmartTables: 0,
+			trNgGrid: 0,
+			adapt_strap: 0
+		}
+	  };
+	var ob  = {};
+	for(var rdos in $scope.evaledList){
+		var ename =$scope.evaledList[rdos].name;
+		var sum = 0;
+		for (var vals in $scope.conclusionList) {
+			sum = sum + $scope.conclusionList[vals][ename];
+		}
+		ob[ename] = sum;
+	}
+	$scope.resultSum = ob;
 })
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
 	$scope.langs = [ {

@@ -1,0 +1,46 @@
+<h2>AngularJS Grid Review and testing.</h2>
+
+<h3>Conclusion</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+<tr>
+	<th></th>
+	<th ng-repeat="evaled in evaledList"><a href="{{evaled.url}}">{{evaled.name}}</a></th>
+</tr>
+<tr ng-repeat="(key, val) in conclusionList">
+	<td align=center><b>{{key}}</b></td>
+	<td align=center>{{val.Tablesaw}}</td>
+	<td align=center>{{val.angularjs_datatables}}</td>
+	<td align=center>{{val.SmartTables}}</td>
+	<td align=center>{{val.trNgGrid}}</td>
+	<td align=center>{{val.adapt_strap}}</td>
+</tr>
+<tr>
+	<td align=center><b>Result:</b></td>
+	<td align=center ng-repeat="evaled in evaledList">{{resultSum[evaled.name]}}</td>
+</tr>
+</table>
+</div>
+<h3>Second Round</h3>
+
+
+<h3>First Round</h3>
+
+<h4>ngGrid 2 and 3</h4>
+<hr>
+I couldn't get these working. version 2 worked but it took me forever to get a decent sized grid that acted responsively by width. I couldn't get it to expand correctly in height no matter how I tried. I had an image field in one column that worked ok but another big description field had all text cut at some arbitary lenght that I couldn't overcome....<br>
+Version 3 directly didn't work, columns were mixed with no formatting...<br>
+To complicated.<br>
+
+<h4>Tablesaw</h4>
+<hr>
+VERY good impression. Basically just worked as expected. This one stays on my list for a second round.<br>
+
+
+<h4>angularjs-datatables  <a href="https://datatables.net/">Datatables</a></h4>
+<hr>
+VERY Promising. I couldn't get it to work with REST but everything I have read and seen makes me believe that this could be the one. Right now I'd say better than Tablesaw alghough I haven't looked into responsiveness yet.  Passes to second round.<br>
+
+
+<h4>Smart Table</h4>
+Looks good. I couldn't get filter/search nor paging to work and I can't see inline edit, but being native AngularJS is ver good.<br>

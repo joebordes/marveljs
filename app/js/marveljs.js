@@ -37,6 +37,10 @@ angular.module('MarvelJSApp',
 			templateUrl : 'partials/config.html',
 			controller : 'configCtrl'
 		});
+		$routeProvider.when('/conclusion', {
+			templateUrl : 'partials/conclusion.html',
+			controller : 'conclusionCtrl'
+		});
 		$routeProvider.otherwise({
 			redirectTo : '/comics'
 		});
