@@ -1,4 +1,11 @@
 <h3>Stories</h3>
 <div class="table-responsive">
-
+<table tr-ng-grid="" items="storiesList" page-items="5">
+	<thead>
+		<tr>
+			<th field-name="id" display-name="Story ID" enable-filtering="false" enable-sorting="false" display-align="center"></th>
+			<th field-name="title" display-name="{{Title | i18next}}"></th>
+		</tr>
+	</thead>
+	</table>
 </div>

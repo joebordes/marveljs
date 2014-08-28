@@ -58,20 +58,20 @@ angular.module('MarvelJSApp.controllers', [])
 	};
 })
 .controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
-		$scope.gridOptions = {};
-		$scope.mvData = [];
-		$scope.gridOptions = {
-			data: 'mvData',
-			rowHeight: 100,
-			columnDefs: [
-			{ field:'thumbnail', displayName: i18n.t('Image'),
-				cellTemplate: '<img src="{{row.getProperty(\'thumbnail\').path}}.{{row.getProperty(\'thumbnail\').extension }}" style="max-width:100px"/>',
-				width:100, height:100 },
-			{ field:'name', displayName: i18n.t('Character')},
-			{ field:'description', displayName: i18n.t('Description') }
-		]};
+		//$scope.gridOptions = {};
+		$scope.characterList = [];
+//		$scope.gridOptions = {
+//			data: 'mvData',
+//			rowHeight: 100,
+//			columnDefs: [
+//			{ field:'thumbnail', displayName: i18n.t('Image'),
+//				cellTemplate: '<img src="{{row.getProperty(\'thumbnail\').path}}.{{row.getProperty(\'thumbnail\').extension }}" style="max-width:100px"/>',
+//				width:100, height:100 },
+//			{ field:'name', displayName: i18n.t('Character')},
+//			{ field:'description', displayName: i18n.t('Description') }
+//		]};
 		marvelAPIservice.getCharacters().success(function(response) {
-			$scope.mvData = response.data.results;
+			$scope.characterList = response.data.results;
 		});
 
 })
@@ -117,7 +117,6 @@ angular.module('MarvelJSApp.controllers', [])
 	$scope.storiesList = [];
 	marvelAPIservice.getStories().success(function(response) {
 		$scope.storiesList = response.data.results;
-		console.log(response.data);
 	});
 })
 .controller('conclusionCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
