@@ -169,68 +169,75 @@ angular.module('MarvelJSApp.controllers', [])
 			trNgGrid: 1,
 			adapt_strap: 1
 		},
-		responsive: {
+		nojquery: {
 			Tablesaw: 0,
 			angularjs_datatables: 0,
-			SmartTables: 0,
+			SmartTables: 1,
+			trNgGrid: 1,
+			adapt_strap: 1
+		},
+		responsive: {
+			Tablesaw: 1,
+			angularjs_datatables: 0,
+			SmartTables: 0.8,
 			trNgGrid: 0,
 			adapt_strap: 0
 		},
 		inlineedit: {
 			Tablesaw: 0,
-			angularjs_datatables: 0,
+			angularjs_datatables: 1,
 			SmartTables: 0,
 			trNgGrid: 0,
 			adapt_strap: 0
 		},
 		customcell: {
-			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
+			Tablesaw: 1,
+			angularjs_datatables: 1,
+			SmartTables: 1,
+			trNgGrid: 0.5,
 			adapt_strap: 0
 		},
 		paging: {
-			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
-			adapt_strap: 0
+			Tablesaw: 1,
+			angularjs_datatables: 1,
+			SmartTables: 1,
+			trNgGrid: 1,
+			adapt_strap: 1
 		},
 		rest: {
-			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
-			adapt_strap: 0
+			Tablesaw: 1,
+			angularjs_datatables: 1,
+			SmartTables: 1,
+			trNgGrid: 1,
+			adapt_strap: 1
 		},
 		search: {
 			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
-			adapt_strap: 0
+			angularjs_datatables: 1,
+			SmartTables: 1,
+			trNgGrid: 1,
+			adapt_strap: 1
 		},
 		easy: {
-			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
-			adapt_strap: 0
+			Tablesaw: 0.4,
+			angularjs_datatables: 0.2,
+			SmartTables: 0.6,
+			trNgGrid: 0.9,
+			adapt_strap: 0.5
 		},
 		features: {
-			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
-			adapt_strap: 0
+			Tablesaw: 0.4,
+			angularjs_datatables: 1,
+			SmartTables: 0.8,
+			trNgGrid: 0.8,
+			adapt_strap: 0.6
 		},
 		maturity: {
-			Tablesaw: 0,
-			angularjs_datatables: 0,
-			SmartTables: 0,
-			trNgGrid: 0,
-			adapt_strap: 0
+			Tablesaw: 0.6,
+			angularjs_datatables: 0.9,
+			SmartTables: 0.9,
+			trNgGrid: 0.6,
+			adapt_strap: 0.4
 		}
 	  };
 	var ob  = {};
@@ -240,7 +247,7 @@ angular.module('MarvelJSApp.controllers', [])
 		for (var vals in $scope.conclusionList) {
 			sum = sum + $scope.conclusionList[vals][ename];
 		}
-		ob[ename] = sum;
+		ob[ename] = Math.round(sum*10)/10;
 	}
 	$scope.resultSum = ob;
 })
