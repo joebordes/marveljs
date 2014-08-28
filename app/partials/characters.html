@@ -1,1 +1,20 @@
-<table tr-ng-grid="" items="characterList"></table>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<input type="text" class="form-control" ng-change="searchComics()" ng-model="comicsSearchKey">
+					<span class="input-group-addon"> <i class="glyphicon glyphicon-search"></i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body">
+		<ad-table-ajax table-name="comicsTableSearch"
+			column-definition="comicsColumnDefSearch"
+			table-classes="table table-bordered" page-sizes="[5, 20, 50]"
+			pagination-btn-group-classes="btn-group btn-group-sm"
+			ajax-config="comicsAjaxConfigSearch"
+			page-loader="methods.pageLoader"> </ad-table-ajax>
+	</div>
+</div>

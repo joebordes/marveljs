@@ -57,7 +57,7 @@ angular.module('MarvelJSApp.controllers', [])
 		return active;
 	};
 })
-.controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice, $adConfig) {
 		//$scope.gridOptions = {};
 		$scope.characterList = [];
 //		$scope.gridOptions = {
@@ -70,10 +70,29 @@ angular.module('MarvelJSApp.controllers', [])
 //			{ field:'name', displayName: i18n.t('Character')},
 //			{ field:'description', displayName: i18n.t('Description') }
 //		]};
-		marvelAPIservice.getCharacters().success(function(response) {
-			$scope.characterList = response.data.results;
-		});
+//		marvelAPIservice.getCharacters().success(function(response) {
+//			$scope.characterList = response.data.results;
+//		});
+		$scope.comicsColumnDefSearch = [
+		  {
+			columnHeaderTemplate: '<em>Picture</em>',
+			template: '<img class="thumbnail ad-margin-bottom-none" ng-src="{{thumbnail.path}}.{{thumbnail.extension}}">',
+			width: '100px'
+		  },
+		  {
+			columnHeaderDisplayName: 'Title',
+			displayProperty: 'title'
+		  }
+		];
+		$scope.comicsAjaxConfigSearch = marvelAPIservice.getComics();
 
+		// live search implementation
+		$scope.comicsSearchKey = $scope.comicsAjaxConfigSearch.params.title;
+		$scope.searchComics = function () {
+		  if ($scope.comicsSearchKey) {
+			$scope.comicsAjaxConfigSearch.params.title = $scope.comicsSearchKey;
+		  }
+		};
 })
 .controller('creatorsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
 		$scope.creatorList = [];
