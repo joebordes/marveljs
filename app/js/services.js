@@ -13,28 +13,12 @@ angular.module('MarvelJSApp.services', [])
 		var marvelHash = md5.createHash(marvelTS + marvelPrivateKey + marvelPublicKey);
 		
 		marvelAPI.getComics = function() {
-			return {
+			return $http({
 				method : 'JSONP',
-				params: {},
-				paginationConfig: {
-					request: {
-						start: 'offset',
-						pageSize: 'limit',
-						page: '',
-						sortField: 'sort',
-						sortDirection: 'sort_dir',
-						sortAscValue: 'asc',
-						sortDescValue: 'desc'
-					},
-					response: {
-						itemsLocation: 'data.results',
-						totalItems: 'data.total'
-					}
-				},
 				url : marvelAPIGateWay + 'comics?apikey='
 						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
 						+ marvelHash + '&callback=JSON_CALLBACK'
-			};
+			});
 		}
 		marvelAPI.getComicDetails = function(comicid) {
 			return $http({
