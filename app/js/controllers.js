@@ -109,6 +109,13 @@ angular.module('MarvelJSApp.controllers', [])
 	$scope.predicates = ['title', 'description', 'thumbnail'];
 	$scope.selectedPredicate = $scope.predicates[0];
 })
+.controller('storiesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+	$scope.storiesList = [];
+	marvelAPIservice.getStories().success(function(response) {
+		$scope.storiesList = response.data.results;
+		console.log(response.data);
+	});
+})
 .controller('configCtrl',function($scope, Setup, $i18next, $filter) {
 	$scope.langs = [ {
 		name : i18n.t('English'),

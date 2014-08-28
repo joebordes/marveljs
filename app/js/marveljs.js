@@ -29,6 +29,10 @@ angular.module('MarvelJSApp',
 			templateUrl : 'partials/series.html',
 			controller : 'seriesCtrl'
 		});
+		$routeProvider.when('/stories', {
+			templateUrl : 'partials/stories.html',
+			controller : 'storiesCtrl'
+		});
 		$routeProvider.when('/config', {
 			templateUrl : 'partials/config.html',
 			controller : 'configCtrl'

@@ -76,6 +76,14 @@ angular.module('MarvelJSApp.services', [])
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
 		}
+		marvelAPI.getStories = function() {
+			return $http({
+				method : 'JSONP',
+				url : marvelAPIGateWay + 'stories?apikey='
+						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
+						+ marvelHash + '&callback=JSON_CALLBACK'
+			});
+		}
 
 		return marvelAPI;
 	}
