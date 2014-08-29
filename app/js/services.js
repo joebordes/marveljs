@@ -12,12 +12,15 @@ angular.module('MarvelJSApp.services', [])
 		var marvelTS = 'OUR MARVEL PASS KEY';  // this can be any string
 		var marvelHash = md5.createHash(marvelTS + marvelPrivateKey + marvelPublicKey);
 		
-		marvelAPI.getComics = function() {
+		marvelAPI.getComics = function(offset,limit) {
+			var URL = marvelAPIGateWay + 'comics?apikey='
+			+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
+			+ marvelHash + '&callback=JSON_CALLBACK';
+			if (offset) URL = URL + '&offset=' + offset
+			if (limit) URL = URL + '&limit=' + limit
 			return $http({
 				method : 'JSONP',
-				url : marvelAPIGateWay + 'comics?apikey='
-						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
-						+ marvelHash + '&callback=JSON_CALLBACK'
+				url : URL
 			});
 		}
 		marvelAPI.getComicDetails = function(comicid) {

@@ -1,11 +1,23 @@
 <h3>Stories</h3>
 <div class="table-responsive">
-<table tr-ng-grid="" items="storiesList" page-items="5">
-	<thead>
-		<tr>
-			<th field-name="id" display-name="Story ID" enable-filtering="false" enable-sorting="false" display-align="center"></th>
-			<th field-name="title" display-name="{{Title | i18next}}"></th>
-		</tr>
-	</thead>
+	<table tr-ng-grid="" items="storiesList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
+	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
+	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+		<thead>
+			<tr>
+				<th field-name="id" display-name="{{'Comic' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
+					display-align="center"></th>
+				<th field-name="title" display-name="{{'Title' | i18next}}"></th>
+				<th field-name="series.name" display-name="{{'Series' | i18next}}"></th>
+				<th field-name="description"
+					display-name="{{'Description' | i18next}}"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td field-name="id"><a href='#/comics/{{gridItem.id}}'><img width='100px' src='{{gridItem.thumbnail.path}}.{{gridItem.thumbnail.extension}}'/></a></td>
+			</tr>
+		</tbody>
 	</table>
 </div>

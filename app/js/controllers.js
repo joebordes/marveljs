@@ -134,8 +134,23 @@ angular.module('MarvelJSApp.controllers', [])
 })
 .controller('storiesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
 	$scope.storiesList = [];
-	marvelAPIservice.getStories().success(function(response) {
+	$scope.myPageItemsCount = 0;
+	$scope.myItemsTotalCount = 0;
+	marvelAPIservice.getComics().success(function(response) {
+		$scope.myPageItemsCount = response.data.count;
+		$scope.myItemsTotalCount = response.data.total;
 		$scope.storiesList = response.data.results;
+	});
+	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+		marvelAPIservice.getComics(currentPage * pageItems, pageItems).success(function(response) {
+			$scope.myPageItemsCount = response.data.count;
+			$scope.myItemsTotalCount = response.data.total;
+			$scope.storiesList = response.data.results;
+		});
+	}
+	$scope.mySelectedItems = [];
+	$scope.watch("mySelectedItems.length", function(newLength){
+	  console.log($scope.mySelectedItems);
 	});
 })
 .controller('conclusionCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
