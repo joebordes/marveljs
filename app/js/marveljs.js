@@ -2,8 +2,8 @@
 
 angular.module('MarvelJSApp',
 	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters', 'MarvelJSApp.services',
-		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','ui.bootstrap', 'smart-table',
-		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next', 'trNgGrid', 'adaptv.adaptStrap','datatables'])
+		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','ui.bootstrap',
+		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next', 'trNgGrid'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
 			templateUrl : 'partials/comics.html',
@@ -46,35 +46,6 @@ angular.module('MarvelJSApp',
 		});
 	}
 	])
-	.config(['$adConfigProvider', function ($adConfigProvider) {
-		$adConfigProvider.paging = {
-			request: {
-				start: 'offset',
-				pageSize: 'limit',
-				//page: '',
-				sortField: 'sort',
-				sortDirection: 'sort_dir',
-				sortAscValue: 'asc',
-				sortDescValue: 'desc'
-			},
-			response: {
-				itemsLocation: 'results',
-				totalItems: 'totalCount'
-			}
-		};
-		$adConfigProvider.iconClasses = {
-			expand: 'glyphicon glyphicon-plus-sign',
-			collapse: 'glyphicon glyphicon-minus-sign',
-			loadingSpinner: 'glyphicon glyphicon-refresh ad-spin',
-			firstPage: 'glyphicon glyphicon-fast-backward',
-			previousPage: 'glyphicon glyphicon-backward',
-			nextPage: 'glyphicon glyphicon-forward',
-			lastPage: 'glyphicon glyphicon-fast-forward',
-			sortAscending: 'glyphicon glyphicon-chevron-up',
-			sortDescending: 'glyphicon glyphicon-chevron-down',
-			sortable: 'glyphicon glyphicon-resize-vertical'
-		}
-	}])
 	.config(['Setup','$i18nextProvider', function (Setup, $i18nextProvider) {
 	$i18nextProvider.options = {
 		lng: Setup.language,

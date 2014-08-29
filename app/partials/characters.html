@@ -1,20 +1,22 @@
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="input-group">
-					<input type="text" class="form-control" ng-change="searchComics()" ng-model="comicsSearchKey">
-					<span class="input-group-addon"> <i class="glyphicon glyphicon-search"></i></span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="panel-body">
-		<ad-table-ajax table-name="comicsTableSearch"
-			column-definition="comicsColumnDefSearch"
-			table-classes="table table-bordered" page-sizes="[5, 20, 50]"
-			pagination-btn-group-classes="btn-group btn-group-sm"
-			ajax-config="comicsAjaxConfigSearch"
-			page-loader="methods.pageLoader"> </ad-table-ajax>
-	</div>
+<h2>{{'Characters' | i18next}}</h2>
+<div class="table-responsive">
+	<table tr-ng-grid="" items="characterList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
+	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
+	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)"
+	 class="tablesaw tablesaw-columntoggle">
+		<thead>
+			<tr>
+				<th field-name="id" display-name="{{'Image' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
+					display-align="center"></th>
+				<th field-name="name" display-name="{{'Name' | i18next}}"></th>
+				<th field-name="description" display-name="{{'Description' | i18next}}"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td field-name="id"><a href='#/comics/{{gridItem.id}}'><img width='100px' src='{{gridItem.thumbnail.path}}.{{gridItem.thumbnail.extension}}'/></a></td>
+			</tr>
+		</tbody>
+	</table>
 </div>

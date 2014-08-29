@@ -57,92 +57,101 @@ angular.module('MarvelJSApp.controllers', [])
 		return active;
 	};
 })
-.controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice, $adConfig) {
-		//$scope.gridOptions = {};
-		$scope.characterList = [];
-//		$scope.gridOptions = {
-//			data: 'mvData',
-//			rowHeight: 100,
-//			columnDefs: [
-//			{ field:'thumbnail', displayName: i18n.t('Image'),
-//				cellTemplate: '<img src="{{row.getProperty(\'thumbnail\').path}}.{{row.getProperty(\'thumbnail\').extension }}" style="max-width:100px"/>',
-//				width:100, height:100 },
-//			{ field:'name', displayName: i18n.t('Character')},
-//			{ field:'description', displayName: i18n.t('Description') }
-//		]};
-//		marvelAPIservice.getCharacters().success(function(response) {
-//			$scope.characterList = response.data.results;
-//		});
-		$scope.comicsColumnDefSearch = [
-		  {
-			columnHeaderTemplate: '<em>Picture</em>',
-			template: '<img class="thumbnail ad-margin-bottom-none" ng-src="{{thumbnail.path}}.{{thumbnail.extension}}">',
-			width: '100px'
-		  },
-		  {
-			columnHeaderDisplayName: 'Title',
-			displayProperty: 'title'
-		  }
-		];
-		$scope.comicsAjaxConfigSearch = marvelAPIservice.getComics();
-
-		// live search implementation
-		$scope.comicsSearchKey = $scope.comicsAjaxConfigSearch.params.title;
-		$scope.searchComics = function () {
-		  if ($scope.comicsSearchKey) {
-			$scope.comicsAjaxConfigSearch.params.title = $scope.comicsSearchKey;
-		  }
-		};
+.controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+	$scope.characterList = [];
+	$scope.myPageItemsCount = 0;
+	$scope.myItemsTotalCount = 0;
+	marvelAPIservice.getCharacters().success(function(response) {
+		$scope.myPageItemsCount = response.data.count;
+		$scope.myItemsTotalCount = response.data.total;
+		$scope.characterList = response.data.results;
+	});
+	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+		marvelAPIservice.getCharacters(currentPage * pageItems, pageItems).success(function(response) {
+			$scope.myPageItemsCount = response.data.count;
+			$scope.myItemsTotalCount = response.data.total;
+			$scope.characterList = response.data.results;
+		});
+	}
+	$scope.mySelectedItems = [];
+	$scope.watch("mySelectedItems.length", function(newLength){
+	  console.log($scope.mySelectedItems);
+	});
 })
 .controller('creatorsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
-		$scope.creatorList = [];
-		marvelAPIservice.getCreators().success(function(response) {
+	$scope.creatorList = [];
+	$scope.myPageItemsCount = 0;
+	$scope.myItemsTotalCount = 0;
+	marvelAPIservice.getCreators().success(function(response) {
+		$scope.myPageItemsCount = response.data.count;
+		$scope.myItemsTotalCount = response.data.total;
+		$scope.creatorList = response.data.results;
+	});
+	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+		marvelAPIservice.getCreators(currentPage * pageItems, pageItems).success(function(response) {
+			$scope.myPageItemsCount = response.data.count;
+			$scope.myItemsTotalCount = response.data.total;
 			$scope.creatorList = response.data.results;
 		});
-
+	}
+	$scope.mySelectedItems = [];
+	$scope.watch("mySelectedItems.length", function(newLength){
+	  console.log($scope.mySelectedItems);
+	});
 })
-.controller('eventsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice, DTOptionsBuilder, DTColumnBuilder) {
-	//$scope.dtOptions = [];
-//	marvelAPIservice.getEvents().success(function(response) {
-//		console.log(response.data);
-//		return response.data.results;
-//	});
-	//$scope.dtOptions = DTOptionsBuilder.fromSource(marvelAPIservice.getEvents).withPaginationType('full_numbers');
-	//$scope.dtOptions = DTOptionsBuilder.fromFnPromise(marvelAPIservice.getEvents)
-	//.withFnServerData(marvelAPIservice.getEvents)
-	//	.withDataProp('data.results')
-	//	.withPaginationType('full_numbers');
-	$scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withDisplayLength(2);
-	$scope.dtColumns = [
-		DTColumnBuilder.newColumn('end').withTitle('Image'),
-		DTColumnBuilder.newColumn('title').withTitle('title'),
-		DTColumnBuilder.newColumn('description').withTitle('Description')
-	];
+.controller('eventsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
 	$scope.eventsList = [];
+	$scope.myPageItemsCount = 0;
+	$scope.myItemsTotalCount = 0;
 	marvelAPIservice.getEvents().success(function(response) {
+		$scope.myPageItemsCount = response.data.count;
+		$scope.myItemsTotalCount = response.data.total;
 		$scope.eventsList = response.data.results;
 	});
-
+	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+		marvelAPIservice.getEvents(currentPage * pageItems, pageItems).success(function(response) {
+			$scope.myPageItemsCount = response.data.count;
+			$scope.myItemsTotalCount = response.data.total;
+			$scope.eventsList = response.data.results;
+		});
+	}
+	$scope.mySelectedItems = [];
+	$scope.watch("mySelectedItems.length", function(newLength){
+	  console.log($scope.mySelectedItems);
+	});
 })
 .controller('seriesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
 	$scope.seriesList = [];
+	$scope.myPageItemsCount = 0;
+	$scope.myItemsTotalCount = 0;
 	marvelAPIservice.getSeries().success(function(response) {
+		$scope.myPageItemsCount = response.data.count;
+		$scope.myItemsTotalCount = response.data.total;
 		$scope.seriesList = response.data.results;
 	});
-	$scope.predicates = ['title', 'description', 'thumbnail'];
-	$scope.selectedPredicate = $scope.predicates[0];
+	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+		marvelAPIservice.getSeries(currentPage * pageItems, pageItems).success(function(response) {
+			$scope.myPageItemsCount = response.data.count;
+			$scope.myItemsTotalCount = response.data.total;
+			$scope.seriesList = response.data.results;
+		});
+	}
+	$scope.mySelectedItems = [];
+	$scope.watch("mySelectedItems.length", function(newLength){
+	  console.log($scope.mySelectedItems);
+	});
 })
 .controller('storiesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
 	$scope.storiesList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
-	marvelAPIservice.getComics().success(function(response) {
+	marvelAPIservice.getStories().success(function(response) {
 		$scope.myPageItemsCount = response.data.count;
 		$scope.myItemsTotalCount = response.data.total;
 		$scope.storiesList = response.data.results;
 	});
 	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
-		marvelAPIservice.getComics(currentPage * pageItems, pageItems).success(function(response) {
+		marvelAPIservice.getStories(currentPage * pageItems, pageItems).success(function(response) {
 			$scope.myPageItemsCount = response.data.count;
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.storiesList = response.data.results;
@@ -284,20 +293,24 @@ angular.module('MarvelJSApp.controllers', [])
 	$scope.mvprivatekey = Setup.marvelPrivateKey;
 })
 .controller('comicsCtrl',function($scope, marvelAPIservice, Setup, md5, $i18next) {
-	$scope.nameFilter = null;
 	$scope.comicsList = [];
-	$scope.searchFilter = function(comic) {
-		var keyword = new RegExp($scope.nameFilter, 'i');
-		return !$scope.nameFilter || keyword.test(comic.title)
-				|| keyword.test(comic.series.name);
-	};
-	$scope.changeLanguage = function (lng) {
-		$i18next.options.lng=lng.code;
-	}
-
+	$scope.myPageItemsCount = 0;
+	$scope.myItemsTotalCount = 0;
 	marvelAPIservice.getComics().success(function(response) {
-		// Dig into the responde to get the relevant data
+		$scope.myPageItemsCount = response.data.count;
+		$scope.myItemsTotalCount = response.data.total;
 		$scope.comicsList = response.data.results;
+	});
+	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+		marvelAPIservice.getComics(currentPage * pageItems, pageItems).success(function(response) {
+			$scope.myPageItemsCount = response.data.count;
+			$scope.myItemsTotalCount = response.data.total;
+			$scope.comicsList = response.data.results;
+		});
+	}
+	$scope.mySelectedItems = [];
+	$scope.watch("mySelectedItems.length", function(newLength){
+	  console.log($scope.mySelectedItems);
 	});
 })
 .controller('comicCtrl', function($scope, $routeParams, marvelAPIservice, Setup, md5) {

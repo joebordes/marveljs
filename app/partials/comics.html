@@ -1,31 +1,23 @@
-<h2>Comic Listing</h2>
-<table st-table="comicsList" class="table table-striped">
-	<thead>
-		<tr>
-			<th colspan="2">{{'Comic' | i18next}}</th>
-			<th st-sort="title">{{'Title' | i18next}}</th>
-			<th st-sort="series.name">{{'Series' | i18next}}</th>
-			<th>{{'Description' | i18next}}</th>
-		</tr>
-		<tr>
-		<th colspan="2"></th>
-		<th>
-			<input st-search="'title'" placeholder="search title" class="input-sm form-control" type="search"/>
-		</th>
-		<th colspan="2">
-			<input st-search placeholder="global search" class="input-sm form-control" type="search"/>
-		</th>
-	</tr>
-		
-	</thead>
-	<tbody>
-		<tr st-select-row="row" st-select-mode="multiple" ng-repeat="comic in comicsList">
-			<td>{{$index + 1}}</td>
-			<td><a href='#/comics/{{comic.id}}'><img width="100px"
-					src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" /></a></td>
-			<td><a href='#/comics/{{comic.id}}'>{{comic.title}}</a></td>
-			<td>{{comic.series.name}}</td>
-			<td>{{comic.description}}</td>
-		</tr>
-	</tbody>
-</table>
+<h2>Comics</h2>
+<div class="table-responsive">
+	<table tr-ng-grid="" items="comicsList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
+	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
+	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+		<thead>
+			<tr>
+				<th field-name="id" display-name="{{'Comic' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
+					display-align="center"></th>
+				<th field-name="title" display-name="{{'Title' | i18next}}"></th>
+				<th field-name="series.name" display-name="{{'Series' | i18next}}"></th>
+				<th field-name="description"
+					display-name="{{'Description' | i18next}}"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td field-name="id"><a href='#/comics/{{gridItem.id}}'><img width='100px' src='{{gridItem.thumbnail.path}}.{{gridItem.thumbnail.extension}}'/></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

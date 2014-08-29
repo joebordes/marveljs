@@ -12,8 +12,8 @@ angular.module('MarvelJSApp.services', [])
 		var marvelTS = 'OUR MARVEL PASS KEY';  // this can be any string
 		var marvelHash = md5.createHash(marvelTS + marvelPrivateKey + marvelPublicKey);
 		
-		marvelAPI.getComics = function(offset,limit) {
-			var URL = marvelAPIGateWay + 'comics?apikey='
+		marvelAPI.getMarvelInfo = function(info,offset,limit) {
+			var URL = marvelAPIGateWay + info + '?apikey='
 			+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
 			+ marvelHash + '&callback=JSON_CALLBACK';
 			if (offset) URL = URL + '&offset=' + offset
@@ -22,6 +22,9 @@ angular.module('MarvelJSApp.services', [])
 				method : 'JSONP',
 				url : URL
 			});
+		}
+		marvelAPI.getComics = function(offset,limit) {
+			return marvelAPI.getMarvelInfo('comics',offset,limit);
 		}
 		marvelAPI.getComicDetails = function(comicid) {
 			return $http({
@@ -47,45 +50,20 @@ angular.module('MarvelJSApp.services', [])
 						+ marvelHash + '&callback=JSON_CALLBACK'
 			});
 		}
-		marvelAPI.getCharacters = function() {
-			return $http({
-				method : 'JSONP',
-				url : marvelAPIGateWay + 'characters?apikey='
-						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
-						+ marvelHash + '&callback=JSON_CALLBACK'
-			});
+		marvelAPI.getCharacters = function(offset,limit) {
+			return marvelAPI.getMarvelInfo('characters',offset,limit);
 		}
-		marvelAPI.getCreators = function() {
-			return $http({
-				method : 'JSONP',
-				url : marvelAPIGateWay + 'creators?apikey='
-						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
-						+ marvelHash + '&callback=JSON_CALLBACK'
-			});
+		marvelAPI.getCreators = function(offset,limit) {
+			return marvelAPI.getMarvelInfo('creators',offset,limit);
 		}
-		marvelAPI.getEvents = function() {
-			return $http({
-				method : 'JSONP',
-				url : marvelAPIGateWay + 'events?apikey='
-						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
-						+ marvelHash + '&callback=JSON_CALLBACK'
-			});
+		marvelAPI.getEvents = function(offset,limit) {
+			return marvelAPI.getMarvelInfo('events',offset,limit);
 		}
-		marvelAPI.getSeries = function() {
-			return $http({
-				method : 'JSONP',
-				url : marvelAPIGateWay + 'series?apikey='
-						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
-						+ marvelHash + '&callback=JSON_CALLBACK'
-			});
+		marvelAPI.getSeries = function(offset,limit) {
+			return marvelAPI.getMarvelInfo('series',offset,limit);
 		}
-		marvelAPI.getStories = function() {
-			return $http({
-				method : 'JSONP',
-				url : marvelAPIGateWay + 'stories?apikey='
-						+ marvelPublicKey + '&ts=' + marvelTS + '&hash='
-						+ marvelHash + '&callback=JSON_CALLBACK'
-			});
+		marvelAPI.getStories = function(offset,limit) {
+			return marvelAPI.getMarvelInfo('stories',offset,limit);
 		}
 
 		return marvelAPI;

@@ -1,35 +1,21 @@
-<h3>Series</h3>
+<h2>Series</h2>
 <div class="table-responsive">
-    <table st-table="seriesList" class="table table-striped">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th st-sort="title">Title</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-			<th>
-				<input st-search placeholder="global search" class="input-sm form-control" type="search"/>
-			</th>
-			<th>
-				<input st-search="'title'" placeholder="search for title" class="input-sm form-control" type="search"/>
-			</th>
-			<th></th>
-		</tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="serie in seriesList">
-            <td><img width="100px" src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" /></td>
-            <td>{{ serie.title }}</td>
-            <td>{{ serie.description }}</td>
-        </tr>
-        </tbody>
-        <tfoot>
+	<table tr-ng-grid="" items="seriesList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
+	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
+	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+		<thead>
 			<tr>
-				<td colspan="3" class="text-center">
-					<div st-pagination="" st-items-by-page="5" st-displayed-pages="7"></div>
-				</td>
+				<th field-name="id" display-name="{{'Image' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
+					display-align="center"></th>
+				<th field-name="title" display-name="{{'Title' | i18next}}"></th>
+				<th field-name="description" display-name="{{'Description' | i18next}}"></th>
 			</tr>
-		</tfoot>
-    </table>
+		</thead>
+		<tbody>
+			<tr>
+				<td field-name="id"><a href='#/comics/{{gridItem.id}}'><img width='100px' src='{{gridItem.thumbnail.path}}.{{gridItem.thumbnail.extension}}'/></a></td>
+			</tr>
+		</tbody>
+	</table>
 </div>

@@ -1,18 +1,21 @@
+<h2>Events</h2>
 <div class="table-responsive">
-    <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumns" class="row-border hover">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="event in eventsList">
-            <td><img width="100px" src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}" /></td>
-            <td>{{ event.title }}</td>
-            <td>{{ event.description }}</td>
-        </tr>
-        </tbody>
-    </table>
+	<table tr-ng-grid="" items="eventsList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
+	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
+	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+		<thead>
+			<tr>
+				<th field-name="id" display-name="{{'Image' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
+					display-align="center"></th>
+				<th field-name="title" display-name="{{'Title' | i18next}}"></th>
+				<th field-name="description" display-name="{{'Description' | i18next}}"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td field-name="id"><a href='#/comics/{{gridItem.id}}'><img width='100px' src='{{gridItem.thumbnail.path}}.{{gridItem.thumbnail.extension}}'/></a></td>
+			</tr>
+		</tbody>
+	</table>
 </div>
