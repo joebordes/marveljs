@@ -283,6 +283,9 @@ angular.module('MarvelJSApp.controllers', [])
 		name : i18n.t('Spanish'),
 		code : 'es'
 	}];
+	$scope.changeLanguage = function (lng) {
+		$i18next.options.lng=lng.code;
+	}
 	var found = $filter('getById')($scope.langs, $i18next.options.lng, 'code');
 	if (found!=null) {
 		$scope.currentLang = found;
