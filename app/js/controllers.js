@@ -209,7 +209,7 @@ angular.module('MarvelJSApp.controllers', [])
 			Tablesaw: 1,
 			angularjs_datatables: 1,
 			SmartTables: 1,
-			trNgGrid: 0.5,
+			trNgGrid: 1,
 			adapt_strap: 0
 		},
 		paging: {
@@ -236,8 +236,8 @@ angular.module('MarvelJSApp.controllers', [])
 		easy: {
 			Tablesaw: 0.4,
 			angularjs_datatables: 0.2,
-			SmartTables: 0.6,
-			trNgGrid: 0.9,
+			SmartTables: 0.5,
+			trNgGrid: 1,
 			adapt_strap: 0.5
 		},
 		features: {
@@ -251,7 +251,7 @@ angular.module('MarvelJSApp.controllers', [])
 			Tablesaw: 0.6,
 			angularjs_datatables: 0.9,
 			SmartTables: 0.9,
-			trNgGrid: 0.6,
+			trNgGrid: 0.8,
 			adapt_strap: 0.4
 		}
 	  };
