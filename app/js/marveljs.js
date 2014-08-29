@@ -2,8 +2,8 @@
 
 angular.module('MarvelJSApp',
 	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters', 'MarvelJSApp.services',
-		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','datatables', 'smart-table',
-		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next','ui.bootstrap', 'trNgGrid', 'adaptv.adaptStrap'])
+		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','ui.bootstrap', 'smart-table',
+		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next', 'trNgGrid', 'adaptv.adaptStrap','datatables'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
 			templateUrl : 'partials/comics.html',
