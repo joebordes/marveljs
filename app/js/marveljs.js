@@ -55,4 +55,17 @@ angular.module('MarvelJSApp',
 		resGetPath: 'locales/__lng__/translation.json',
 		defaultLoadingValue: '' // ng-i18next option, *NOT* directly supported by i18next
 	};
-	}]);
+	}])
+	.config(function($httpProvider) {
+		$httpProvider.interceptors.push('marvelAPIInterceptor');
+	})
+	.run(function ($rootScope, marvelAPIInvalidKeys, marvelAPIservice, $location) {
+		$rootScope.$on('$routeChangeStart', function (ev, next, curr) {
+		  if (next.$$route) {
+			if (!marvelAPIservice.isConfigured() || marvelAPIInvalidKeys.hasInvalidKeys()) {
+				$location.path('/config')
+			}
+		  }
+		})
+	})
+;

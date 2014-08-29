@@ -25,5 +25,7 @@
 	"Disclaimer": "Disclaimer",
 	"MarvelJSDisclaimer": "This application is not endorsed in any way by the Marvel company. It is a personal initiative with the sole purpose to learn and test new programming skills. It is an open source project, availalbe on GitHub. I use the Marvel API simply to join two of my passions: programming and comics. The is licensed under a MIT License, so basically you can do as you please with it, although a reference to the origin is always welcome. The ode is distributed \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.",
 	"Promotion": "Promotion",
-	"PromotionDescription": "My company, <a href='http://www.tsolucio.com'>TSolucio</a>, and I are available for all sorts of programmming tasks and specillay for <a href='http://corebos.org'>coreBOS</a> implementations. Don't hesitat to contact us for whatever you need."
+	"PromotionDescription": "My company, <a href='http://www.tsolucio.com'>TSolucio</a>, and I are available for all sorts of programmming tasks and specillay for <a href='http://corebos.org'>coreBOS</a> implementations. Don't hesitat to contact us for whatever you need.",
+	"MarvelKeyNotSet": "Marvel Keys are not set! You must set these here or in the setup.js file to be able to use the application.  You can get a set of keys at <a href='http://developer.marvel.com/'>Marvel Developer</a>",
+	"MarvelAPIInvalidKeys": "Marvel API Keys seem to be invalid as we are receiving a Not Authorized error response. Please review your values and make sure they are correct. You can get a set of keys at <a href='http://developer.marvel.com/'>Marvel Developer</a>"
 }

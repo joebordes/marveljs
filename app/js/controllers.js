@@ -57,7 +57,7 @@ angular.module('MarvelJSApp.controllers', [])
 		return active;
 	};
 })
-.controller('characterCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('characterCtrl',function($scope, $i18next, marvelAPIservice) {
 	$scope.characterList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
@@ -74,11 +74,11 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 	}
 	$scope.mySelectedItems = [];
-	$scope.watch("mySelectedItems.length", function(newLength){
+	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
 	});
 })
-.controller('creatorsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('creatorsCtrl',function($scope, $i18next, marvelAPIservice) {
 	$scope.creatorList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
@@ -95,11 +95,11 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 	}
 	$scope.mySelectedItems = [];
-	$scope.watch("mySelectedItems.length", function(newLength){
+	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
 	});
 })
-.controller('eventsCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('eventsCtrl',function($scope, $i18next, marvelAPIservice) {
 	$scope.eventsList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
@@ -116,11 +116,11 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 	}
 	$scope.mySelectedItems = [];
-	$scope.watch("mySelectedItems.length", function(newLength){
+	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
 	});
 })
-.controller('seriesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('seriesCtrl',function($scope, $i18next, marvelAPIservice) {
 	$scope.seriesList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
@@ -137,11 +137,11 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 	}
 	$scope.mySelectedItems = [];
-	$scope.watch("mySelectedItems.length", function(newLength){
+	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
 	});
 })
-.controller('storiesCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('storiesCtrl',function($scope, $i18next, marvelAPIservice) {
 	$scope.storiesList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
@@ -158,11 +158,11 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 	}
 	$scope.mySelectedItems = [];
-	$scope.watch("mySelectedItems.length", function(newLength){
+	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
 	});
 })
-.controller('conclusionCtrl',function($scope, Setup, $i18next, $filter, marvelAPIservice) {
+.controller('conclusionCtrl',function($scope, $i18next) {
 	$scope.evaledList = [
 	  {
 		name: 'Tablesaw',
@@ -275,7 +275,7 @@ angular.module('MarvelJSApp.controllers', [])
 	}
 	$scope.resultSum = ob;
 })
-.controller('configCtrl',function($scope, Setup, $i18next, $filter) {
+.controller('configCtrl',function($scope, $i18next, $filter, marvelAPIservice, marvelAPIInvalidKeys) {
 	$scope.langs = [ {
 		name : i18n.t('English'),
 		code : 'en'
@@ -289,10 +289,20 @@ angular.module('MarvelJSApp.controllers', [])
 	} else {
 		$scope.currentLang = $scope.langs[0];
 	}
-	$scope.mvpublickey = Setup.marvelPublicKey;
-	$scope.mvprivatekey = Setup.marvelPrivateKey;
+	$scope.mvpublickey = marvelAPIservice.getPublicKey();
+	$scope.mvprivatekey = marvelAPIservice.getPrivateKey();
+	$scope.$watch("mvpublickey", function(newval, oldval){
+		marvelAPIservice.setPublicKey(newval);
+		marvelAPIservice.setConfigured();
+	});
+	$scope.$watch("mvprivatekey", function(newval, oldval){
+		marvelAPIservice.setPrivateKey(newval);
+		marvelAPIservice.setConfigured();
+	});
+	$scope.MarvelAPIConfigured = marvelAPIservice.isConfigured();
+	$scope.MarvelAPIKeys = marvelAPIInvalidKeys.hasInvalidKeys();
 })
-.controller('comicsCtrl',function($scope, marvelAPIservice, Setup, md5, $i18next) {
+.controller('comicsCtrl',function($scope, marvelAPIservice, $i18next) {
 	$scope.comicsList = [];
 	$scope.myPageItemsCount = 0;
 	$scope.myItemsTotalCount = 0;
@@ -309,11 +319,11 @@ angular.module('MarvelJSApp.controllers', [])
 		});
 	}
 	$scope.mySelectedItems = [];
-	$scope.watch("mySelectedItems.length", function(newLength){
+	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
 	});
 })
-.controller('comicCtrl', function($scope, $routeParams, marvelAPIservice, Setup, md5) {
+.controller('comicCtrl', function($scope, marvelAPIservice) {
 	$scope.id = $routeParams.id;
 	$scope.events = [];
 	$scope.creators = [];

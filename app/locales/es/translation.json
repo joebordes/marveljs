@@ -25,5 +25,7 @@
 	"Disclaimer": "Descargo de Responsabilidad",
 	"MarvelJSDisclaimer": "Esta aplicación no está vinculada a la empresa Marvel de ninguna manera. Es una iniciativa personal que sirve de banco de pruebas y apredizaje para mi. Además es un proyecto de código libre, disponible en GitHub. Utilizo el API de Marvel solo por juntar dos de mis pasiones: programación y comics. El código se distribuye bajo licencia MIT, así que básicamente puedes hacer lo que quieras con ella, aunque una mención a la fuente nunca está de más. El código se cede \"TAL CUAL\", sin condiciones ni garantías de ningún tipo.",
 	"Promotion": "Promoción",
-	"PromotionDescription": "My empresa, <a href='http://www.tsolucio.com'>TSolucio</a>, y yo estamos disponibles para todo tipo de trabajos de programación y, especialmente para implementaciones de <a href='http://corebos.org'>coreBOS</a>. No dudes en ponerte en contacto con nosotros."
+	"PromotionDescription": "Mi empresa, <a href='http://www.tsolucio.com'>TSolucio</a>, y yo estamos disponibles para todo tipo de trabajos de programación y, especialmente para implementaciones de <a href='http://corebos.org'>coreBOS</a>. No dudes en ponerte en contacto con nosotros.",
+	"MarvelKeyNotSet": "Las claves de acceso a Marvel no están definidas! Debes establecerlas aquí o en el fichero setup.js para poder utilizar la aplicación. Puedes obtener un juego de claves en <a href='http://developer.marvel.com/'>Desarrolladores Marvel</a>",
+	"MarvelAPIInvalidKeys": "Las clave de acceso a Marvel parecen ser incorrectas ya que estamos obteniendo una respuesta No Autorizado. Revisa que estén bien y prueba de nuevo. Puedes obtener un juego de claves en <a href='http://developer.marvel.com/'>Desarrolladores Marvel</a>"
 }
