@@ -70,6 +70,22 @@ angular.module('MarvelJSApp',
 				$location.path('/config')
 			}
 		  }
-		})
+		});
+		/*
+		TrNgGrid.tableCssClass = "tr-ng-grid table table-bordered table-hover";
+	    TrNgGrid.cellCssClass = "tr-ng-cell";
+	    TrNgGrid.headerCellCssClass = "tr-ng-column-header " + TrNgGrid.cellCssClass;
+	    TrNgGrid.bodyCellCssClass = cellCssClass;
+	    TrNgGrid.columnTitleCssClass = "tr-ng-title";
+	    TrNgGrid.columnSortCssClass = "tr-ng-sort";
+	    TrNgGrid.columnFilterCssClass = "tr-ng-column-filter";
+	    TrNgGrid.columnFilterInputWrapperCssClass = "";
+	    TrNgGrid.columnSortActiveCssClass = "tr-ng-sort-active text-info";
+	    TrNgGrid.columnSortInactiveCssClass = "tr-ng-sort-inactive text-muted";
+	    TrNgGrid.columnSortReverseOrderCssClass = "tr-ng-sort-order-reverse glyphicon glyphicon-chevron-up";
+	    TrNgGrid.columnSortNormalOrderCssClass = "tr-ng-sort-order-normal glyphicon glyphicon-chevron-down";
+	    TrNgGrid.rowSelectedCssClass = "active";
+	    TrNgGrid.footerCssClass = "tr-ng-grid-footer form-inline";
+	    */
 	})
 ;

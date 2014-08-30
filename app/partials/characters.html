@@ -1,14 +1,23 @@
 <h2>{{'Characters' | i18next}}</h2>
-<div class="table-responsive">
 	<table tr-ng-grid="" items="characterList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
 	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
 	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)"
-	 class="tablesaw tablesaw-columntoggle">
+	 class="tablesaw tablesaw-columntoggle" tablesaw data-mode="columntoggle" data-minimap>
 		<thead>
 			<tr>
 				<th field-name="id" display-name="{{'Image' | i18next}}"
 					enable-filtering="false" enable-sorting="false"
+					display-align="center" data-priority="persist"></th>
+				<th field-name="name" display-name="{{'Name' | i18next}}"></th>
+				<th field-name="description" display-name="{{'Description' | i18next}}"></th>
+				<th field-name="id" display-name="{{'Image' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
 					display-align="center"></th>
+				<th field-name="name" display-name="{{'Name' | i18next}}" data-priority="5"></th>
+				<th field-name="description" display-name="{{'Description' | i18next}}" data-priority="5"></th>
+				<th field-name="id" display-name="{{'Image' | i18next}}"
+					enable-filtering="false" enable-sorting="false"
+					display-align="center" data-priority="5"></th>
 				<th field-name="name" display-name="{{'Name' | i18next}}"></th>
 				<th field-name="description" display-name="{{'Description' | i18next}}"></th>
 			</tr>
@@ -19,4 +28,3 @@
 			</tr>
 		</tbody>
 	</table>
-</div>
