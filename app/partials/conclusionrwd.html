@@ -1,0 +1,77 @@
+<h2>AngularJS Responsive Grid Review and testing.</h2>
+
+<h3>Conclusion</h3>
+<div class="table-responsive">
+<table class="table table-striped table-responsive">
+<tr>
+	<th></th>
+	<th ng-repeat="evaled in evaledList"><a href="{{evaled.url}}">{{evaled.name}}</a></th>
+</tr>
+<tr ng-repeat="(key, val) in conclusionList">
+	<td><b>{{key}}</b></td>
+	<td align="center">{{val.Tablesaw}}</td>
+	<td align=center>{{val.RWD}}</td>
+</tr>
+<tr>
+	<td align=center><b>Result:</b></td>
+	<td align=center ng-repeat="evaled in evaledList"><b>{{resultSum[evaled.name]}}</b></td>
+</tr>
+</table>
+</div>
+<br>
+From the scores above it seems that Smart Table is the winner, but trNgGrid needs a second look.
+
+<table class="table table-striped table-responsive">
+<tr>
+<td><b>Tablesaw</b></td><td>This one is impressive, the responsiveness is spectacular. What throws me off is the jquery because I am really looking at angularjs and some of the missing features, if this were pure jquery I would be VERY tempted.</td>
+</tr>
+<tr>
+<td><b>RWD-Table-Patterns</b></td><td>This is the one if we go AngularJS. If we bring in the responsiveness of Tablesaw and some of the features of Datatables, we should have everything we need.</td>
+</tr>
+</table>
+
+<hr><hr>
+<h3>Evaluation</h3>
+
+<hr><h4>Tablesaw</h4>
+
+<hr><h4>RWD-Table-Patterns</h4>
+
+<hr><hr>
+<h3>Deciding what to do.</h3>
+
+The first step was to read and learn about the alternatives and decide what we need and which solutions to evaluate.<br>
+
+Apparently a lot can be done using pure CSS but, in the end some javascript is needed and it looks like mostly that is all jQuery direct DOM manipulation based. I am trying to stay away from that.<br>
+
+<a href="http://elvery.net/demo/responsive-tables/">This site</a> sums up the different approaches:<br> 
+
+<ul>
+<li><b>flip/scroll</b> Simply scroll the table in the view and have the rest of the site be responsive (mandatory if comparing between rows is needed). Optionally, you can flip or move the header to the first column and scroll the rest, also making the first column fixed as <a href="http://zurb.com/playground/responsive-tables">Zurb Foundation's approach</a></li>
+<li><b>list</b> Convert the table into a one column list (if no comparing between rows is needed)</li>
+<li><b>hide</b> Convert the table into a one column list (if no comparing between rows is needed)</li>
+</ul>
+
+Mostly <a href="http://dbushell.com/about/">David Bushell's</a> comment sums it up: 
+<blockquote>One thing that quickly becomes obvious is that there is <b>no single solution</b>. The ideas above may be perfectly adequate for some cases and completely useless for others.</blockquote>
+
+Since "roll-your-own" is not an option I will not be trying the direct CSS approach, and a pure CSS solution I think will be lacking. Since, I like the Filament TableSaw approach over Zurb, I will evaluate <a href="https://github.com/filamentgroup/tablesaw">Tablesaw</a> and <a href="https://github.com/nadangergeo/RWD-Table-Patterns">RWD-Table-Patterns</a> to decide which to use.<br>
+
+Our needs are basically non-comparitive, so I will look for a hybrid approach between list and hiding<br>
+
+
+<hr><hr>
+<h3>Links and References</h3>
+<ul>
+<li><a href="https://www.liquidlight.co.uk/blog/article/tables-in-responsive-design/">Tables in responsive design</a></li>
+<li><a href="http://css-tricks.com/responsive-data-table-roundup/">Responsive Data Table Roundup</a></li>
+<li><a href="http://filamentgroup.com/lab/responsive-design-approach-for-complex-multicolumn-data-tables.html">A Responsive Design Approach for Complex, Multicolumn Data Tables</a></li>
+<li><a href="http://blog.cloudfour.com/picking-responsive-tables-solution/">Picking a Responsive Tables Solution</a> Basically: need comparing: scroll, no comparing: convert to list</li>
+<li><a href="http://elvery.net/demo/responsive-tables/">Responsive Tables Demo</a></li>
+<li><i class="fa fa-thumbs-up"> </i><a href="http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html">Making Data Tables Responsive</a></li>
+<li><a href="http://css-tricks.com/responsive-data-tables/">Responsive Data Tables</a></li>
+<li><a href="http://zurb.com/playground/responsive-tables">Zurb Responsive Tables</a></li>
+<li><a href="http://dbushell.com/2012/01/05/responsive-tables-2/">Flip table on it's side</a></li>
+<li><a href="https://github.com/nadangergeo/RWD-Table-Patterns">RWD-Table-Patterns</a></li>
+<li><a href="http://themergency.com/footable/">FooTable</a> looked interesting but, as I am trying to stay away from direct DOM manipulation I would prefer using tablesaw approach if I do end up going down that path.</li>
+</ul>

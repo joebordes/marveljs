@@ -9,7 +9,6 @@
 </tr>
 <tr ng-repeat="(key, val) in conclusionList">
 	<td><b>{{key}}</b></td>
-	<td class="text-center">{{val.Tablesaw}}</td>
 	<td align="center">{{val.angularjs_datatables}}</td>
 	<td align=center>{{val.SmartTables}}</td>
 	<td align=center>{{val.trNgGrid}}</td>
@@ -25,9 +24,6 @@
 From the scores above it seems that Smart Table is the winner, but trNgGrid needs a second look.
 
 <table class="table table-striped table-responsive">
-<tr>
-<td><b>Tablesaw</b></td><td>This one is impressive, the responsiveness is spectacular. What throws me off is the jquery because I am really looking at angularjs and some of the missing features, if this were pure jquery I would be VERY tempted.</td>
-</tr>
 <tr>
 <td><b>Datatables</b></td><td>Very mature. Has everything you will need, but it is jquery based.</td>
 </tr>
@@ -50,7 +46,7 @@ After the first round I set the scores on the different grids which led me to on
 <hr><h4>Smart Table</h4>
 I couldn't get sort nor search to work, so I didn't insist. Not being responsive out of the box will make me go for the other tool. 
 
-<hr><h4>trNgGrid</h4>
+<hr><h4><i class="fa fa-thumbs-up"> </i>  trNgGrid  <i class="fa fa-thumbs-up"> </i></h4>
 The second round here was a breeze. Much like the first round which made a good impression I simply went through the different features carefully and they all worked except selecting rows, even paging against a 32000 record database. <span style="font-weight: bold;font-size: large;">This is the one.</span>
 
 <hr><hr>
@@ -60,9 +56,6 @@ The second round here was a breeze. Much like the first round which made a good 
 I couldn't get these working. version 2 worked but it took me forever to get a decent sized grid that acted responsively by width. I couldn't get it to expand correctly in height no matter how I tried. I had an image field in one column that worked ok but another big description field had all text cut at some arbitary lenght that I couldn't overcome....<br>
 Version 3 directly didn't work, columns were mixed with no formatting...<br>
 To complicated.<br>
-
-<hr><h4>Tablesaw</h4>
-VERY good impression. Basically just worked as expected. This one stays on my list for a second round.<br>
 
 
 <hr><h4>angularjs-datatables  <a href="https://datatables.net/">Datatables</a></h4>

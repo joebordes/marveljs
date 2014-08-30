@@ -48,9 +48,13 @@ angular.module('MarvelJSApp.controllers', [])
 		faimg: 'fa-edit',
 		title: 'Settings'
 	}, {
-		path: 'conclusion',
-		faimg: 'fa-life-ring',
-		title: 'Conclusion'
+		path: 'conclusiongrid',
+		faimg: 'fa-table',
+		title: 'Conclusion Grid'
+	}, {
+		path: 'conclusionrwd',
+		faimg: 'fa-recycle',
+		title: 'Conclusion RWD'
 	} ];
 	$scope.isActive = function (viewLocation) {
 		var active = (viewLocation === $location.path());
@@ -165,10 +169,6 @@ angular.module('MarvelJSApp.controllers', [])
 .controller('conclusionCtrl',function($scope, $i18next) {
 	$scope.evaledList = [
 	  {
-		name: 'Tablesaw',
-		url: 'http://filamentgroup.com/lab/tablesaw.html'
-	  },
-	  {
 		name: 'angularjs_datatables',
 		url: 'http://l-lin.github.io/angular-datatables/#/welcome'
 	  },
@@ -187,81 +187,114 @@ angular.module('MarvelJSApp.controllers', [])
 	];
 	$scope.conclusionList = {
 		ajsnative: {
-			Tablesaw: 0.2,
 			angularjs_datatables: 0.5,
 			SmartTables: 1,
 			trNgGrid: 1,
 			adapt_strap: 1
 		},
 		nojquery: {
-			Tablesaw: 0,
 			angularjs_datatables: 0,
 			SmartTables: 1,
 			trNgGrid: 1,
 			adapt_strap: 1
 		},
 		responsive: {
-			Tablesaw: 1,
 			angularjs_datatables: 0,
 			SmartTables: 0.8,
 			trNgGrid: 0,
 			adapt_strap: 0
 		},
 		inlineedit: {
-			Tablesaw: 0,
 			angularjs_datatables: 1,
 			SmartTables: 0,
 			trNgGrid: 0,
 			adapt_strap: 0
 		},
 		customcell: {
-			Tablesaw: 1,
 			angularjs_datatables: 1,
 			SmartTables: 1,
 			trNgGrid: 1,
 			adapt_strap: 0
 		},
 		paging: {
-			Tablesaw: 1,
 			angularjs_datatables: 1,
 			SmartTables: 1,
 			trNgGrid: 1,
 			adapt_strap: 1
 		},
 		rest: {
-			Tablesaw: 1,
 			angularjs_datatables: 1,
 			SmartTables: 1,
 			trNgGrid: 1,
 			adapt_strap: 1
 		},
 		search: {
-			Tablesaw: 0,
 			angularjs_datatables: 1,
 			SmartTables: 1,
 			trNgGrid: 1,
 			adapt_strap: 1
 		},
 		easy: {
-			Tablesaw: 0.4,
 			angularjs_datatables: 0.2,
 			SmartTables: 0.5,
 			trNgGrid: 1,
 			adapt_strap: 0.5
 		},
 		features: {
-			Tablesaw: 0.4,
 			angularjs_datatables: 1,
 			SmartTables: 0.8,
 			trNgGrid: 0.8,
 			adapt_strap: 0.6
 		},
 		maturity: {
-			Tablesaw: 0.6,
 			angularjs_datatables: 0.9,
 			SmartTables: 0.9,
 			trNgGrid: 0.8,
 			adapt_strap: 0.4
+		}
+	  };
+	var ob  = {};
+	for(var rdos in $scope.evaledList){
+		var ename =$scope.evaledList[rdos].name;
+		var sum = 0;
+		for (var vals in $scope.conclusionList) {
+			sum = sum + $scope.conclusionList[vals][ename];
+		}
+		ob[ename] = Math.round(sum*10)/10;
+	}
+	$scope.resultSum = ob;
+})
+.controller('conclusionrwdCtrl',function($scope, $i18next) {
+	$scope.evaledList = [
+	  {
+		name: 'Tablesaw',
+		url: 'http://filamentgroup.com/lab/tablesaw.html'
+	  },
+	  {
+		name: 'RWD',
+		url: 'https://github.com/nadangergeo/RWD-Table-Patterns'
+	  }
+	];
+	$scope.conclusionList = {
+		ajsnative: {
+			Tablesaw: 0.2,
+			RWD: 0.5,
+		},
+		nojquery: {
+			Tablesaw: 0,
+			RWD: 1,
+		},
+		easy: {
+			Tablesaw: 0.4,
+			RWD: 0.2,
+		},
+		features: {
+			Tablesaw: 0.4,
+			RWD: 1,
+		},
+		maturity: {
+			Tablesaw: 0.6,
+			RWD: 0.9,
 		}
 	  };
 	var ob  = {};
