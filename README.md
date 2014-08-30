@@ -7,6 +7,8 @@ As data from a webservice I use [Marvel(r) Developer's API](https://developer.ma
 Feel free to have a look and use as you may need.
 
 Regards
+
 Joe
+
 TSolucio
 
