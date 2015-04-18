@@ -7,7 +7,7 @@
   "private": false,
   "dependencies": {
     "angular": "*",
-    "angular-route": "*",
+    "angular-new-router": "*",
     "angular-loader": "*",
     "angular-mocks": "*",
     "html5-boilerplate": "*",
