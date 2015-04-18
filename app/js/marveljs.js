@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('MarvelJSApp',
-	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters', 'MarvelJSApp.services',
+	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters',
 		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','ui.bootstrap',
-		'MarvelJSApp.controllers', 'MarvelJSApp.services', 'jm.i18next', 'trNgGrid'])
+		'MarvelJSApp.services', 'jm.i18next', 'trNgGrid'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/comics', {
 			templateUrl : 'partials/comics.html',
@@ -67,7 +67,7 @@ angular.module('MarvelJSApp',
 		$rootScope.$on('$routeChangeStart', function (ev, next, curr) {
 		  if (next.$$route) {
 			if (!marvelAPIservice.isConfigured() || marvelAPIInvalidKeys.hasInvalidKeys()) {
-				$location.path('/config')
+				$location.path('/config');
 			}
 		  }
 		});

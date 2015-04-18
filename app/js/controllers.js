@@ -76,7 +76,7 @@ angular.module('MarvelJSApp.controllers', [])
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.characterList = response.data.results;
 		});
-	}
+	};
 	$scope.mySelectedItems = [];
 	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
@@ -97,7 +97,7 @@ angular.module('MarvelJSApp.controllers', [])
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.creatorList = response.data.results;
 		});
-	}
+	};
 	$scope.mySelectedItems = [];
 	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
@@ -118,7 +118,7 @@ angular.module('MarvelJSApp.controllers', [])
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.eventsList = response.data.results;
 		});
-	}
+	};
 	$scope.mySelectedItems = [];
 	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
@@ -139,7 +139,7 @@ angular.module('MarvelJSApp.controllers', [])
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.seriesList = response.data.results;
 		});
-	}
+	};
 	$scope.mySelectedItems = [];
 	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
@@ -160,7 +160,7 @@ angular.module('MarvelJSApp.controllers', [])
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.storiesList = response.data.results;
 		});
-	}
+	};
 	$scope.mySelectedItems = [];
 	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
@@ -318,7 +318,7 @@ angular.module('MarvelJSApp.controllers', [])
 	}];
 	$scope.changeLanguage = function (lng) {
 		$i18next.options.lng=lng.code;
-	}
+	};
 	var found = $filter('getById')($scope.langs, $i18next.options.lng, 'code');
 	if (found!=null) {
 		$scope.currentLang = found;
@@ -353,7 +353,7 @@ angular.module('MarvelJSApp.controllers', [])
 			$scope.myItemsTotalCount = response.data.total;
 			$scope.comicsList = response.data.results;
 		});
-	}
+	};
 	$scope.mySelectedItems = [];
 	$scope.$watch("mySelectedItems.length", function(newLength){
 	  console.log($scope.mySelectedItems);
