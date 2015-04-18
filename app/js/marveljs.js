@@ -1,55 +1,9 @@
 'use strict';
 
 angular.module('MarvelJSApp',
-	[ 'ngRoute', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters',
+	[ 'ngNewRouter', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters',
 		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','ui.bootstrap',
 		'MarvelJSApp.services', 'jm.i18next', 'trNgGrid'])
-	.config([ '$routeProvider', function($routeProvider) {
-		$routeProvider.when('/comics', {
-			templateUrl : 'partials/comics.html',
-			controller : 'comicsCtrl'
-		});
-		$routeProvider.when('/comics/:id', {
-			templateUrl : 'partials/comic.html',
-			controller : 'comicCtrl'
-		});
-		$routeProvider.when('/characters', {
-			templateUrl : 'partials/characters.html',
-			controller : 'characterCtrl'
-		});
-		$routeProvider.when('/creators', {
-			templateUrl : 'partials/creators.html',
-			controller : 'creatorsCtrl'
-		});
-		$routeProvider.when('/events', {
-			templateUrl : 'partials/events.html',
-			controller : 'eventsCtrl'
-		});
-		$routeProvider.when('/series', {
-			templateUrl : 'partials/series.html',
-			controller : 'seriesCtrl'
-		});
-		$routeProvider.when('/stories', {
-			templateUrl : 'partials/stories.html',
-			controller : 'storiesCtrl'
-		});
-		$routeProvider.when('/config', {
-			templateUrl : 'partials/config.html',
-			controller : 'configCtrl'
-		});
-		$routeProvider.when('/conclusiongrid', {
-			templateUrl : 'partials/conclusiongrid.html',
-			controller : 'conclusionCtrl'
-		});
-		$routeProvider.when('/conclusionrwd', {
-			templateUrl : 'partials/conclusionrwd.html',
-			controller : 'conclusionrwdCtrl'
-		});
-		$routeProvider.otherwise({
-			redirectTo : '/comics'
-		});
-	}
-	])
 	.config(['Setup','$i18nextProvider', function (Setup, $i18nextProvider) {
 	$i18nextProvider.options = {
 		lng: Setup.language,
@@ -63,7 +17,53 @@ angular.module('MarvelJSApp',
 	.config(function($httpProvider) {
 		$httpProvider.interceptors.push('marvelAPIInterceptor');
 	})
-	.run(function ($rootScope, marvelAPIInvalidKeys, marvelAPIservice, $location) {
+	.run(function ($rootScope, marvelAPIInvalidKeys, marvelAPIservice, $location, $router) {
+		$router.config([ 
+			{
+				path: '/comics', 
+				component : 'comics'
+			},
+			{
+				path : 'partials/comic.html',
+				controller : 'comicCtrl'
+			},
+			{
+				path : '/characters',
+				component : 'characters'
+			},
+			{
+				path : '/creators',
+				component : 'creators'
+			},
+			{
+				path : '/events',
+				component : 'events'
+			},
+			{
+				path : '/series',
+				component : 'series'
+			},
+			{
+				path : '/stories',
+				component : 'stories'
+			},
+			{
+				path : '/config',
+				component : 'config'
+			},
+			{
+				path : '/conclusiongrid',
+				component : 'conclusiongrid'
+			},
+			{
+				path : '/conclusionrwd',
+				component : 'conclusionrwd'
+			},
+			{
+				path: '/',
+				redirectTo : '/comics'
+			}
+		]);
 		$rootScope.$on('$routeChangeStart', function (ev, next, curr) {
 		  if (next.$$route) {
 			if (!marvelAPIservice.isConfigured() || marvelAPIInvalidKeys.hasInvalidKeys()) {
