@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('MarvelJSApp',
-	[ 'ngNewRouter', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters',
-		'MarvelJSApp.directives', 'MarvelJSApp.controllers', 'angular-md5','ui.bootstrap',
-		'MarvelJSApp.services', 'jm.i18next', 'trNgGrid'])
+	[ 'ngNewRouter', 'MarvelJSApp.setup', 'ngSanitize', 'MarvelJSApp.filters', 'angular-md5',
+		'MarvelJSApp.comic','MarvelJSApp.comics','MarvelJSApp.navigation','MarvelJSApp.characters',
+		'MarvelJSApp.conclusiongrid','MarvelJSApp.conclusionrwd','MarvelJSApp.config','MarvelJSApp.creators',
+		'MarvelJSApp.stories','MarvelJSApp.series','MarvelJSApp.events',
+		'MarvelJSApp.directives','ui.bootstrap', 'MarvelJSApp.services', 'jm.i18next', 'trNgGrid'])
 	.config(['Setup','$i18nextProvider', function (Setup, $i18nextProvider) {
 	$i18nextProvider.options = {
 		lng: Setup.language,

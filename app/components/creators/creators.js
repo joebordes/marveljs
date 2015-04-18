@@ -3,25 +3,25 @@
  */
 
 angular.module('MarvelJSApp.creators', [])
-.controller('CreatorsController',function($scope, $i18next, marvelAPIservice) {
-	$scope.creatorList = [];
-	$scope.myPageItemsCount = 0;
-	$scope.myItemsTotalCount = 0;
+.controller('CreatorsController',function($i18next, marvelAPIservice) {
+	this.creatorList = [];
+	this.myPageItemsCount = 0;
+	this.myItemsTotalCount = 0;
 	marvelAPIservice.getCreators().success(function(response) {
-		$scope.myPageItemsCount = response.data.count;
-		$scope.myItemsTotalCount = response.data.total;
-		$scope.creatorList = response.data.results;
+		this.myPageItemsCount = response.data.count;
+		this.myItemsTotalCount = response.data.total;
+		this.creatorList = response.data.results;
 	});
-	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+	this.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
 		marvelAPIservice.getCreators(currentPage * pageItems, pageItems).success(function(response) {
-			$scope.myPageItemsCount = response.data.count;
-			$scope.myItemsTotalCount = response.data.total;
-			$scope.creatorList = response.data.results;
+			this.myPageItemsCount = response.data.count;
+			this.myItemsTotalCount = response.data.total;
+			this.creatorList = response.data.results;
 		});
 	};
-	$scope.mySelectedItems = [];
-	$scope.$watch("mySelectedItems.length", function(newLength){
-	  console.log($scope.mySelectedItems);
+	this.mySelectedItems = [];
+	this.$watch("mySelectedItems.length", function(newLength){
+	  console.log(this.mySelectedItems);
 	});
 });
 

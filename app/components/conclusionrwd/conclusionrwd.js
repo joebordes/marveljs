@@ -3,8 +3,8 @@
  */
 
 angular.module('MarvelJSApp.conclusionrwd', [])
-.controller('ConclusionrwdController',function($scope, $i18next) {
-	$scope.evaledList = [
+.controller('ConclusionrwdController',function($i18next) {
+	this.evaledList = [
 	  {
 		name: 'Tablesaw',
 		url: 'http://filamentgroup.com/lab/tablesaw.html'
@@ -14,7 +14,7 @@ angular.module('MarvelJSApp.conclusionrwd', [])
 		url: 'https://github.com/nadangergeo/RWD-Table-Patterns'
 	  }
 	];
-	$scope.conclusionList = {
+	this.conclusionList = {
 		ajsnative: {
 			Tablesaw: 0.2,
 			RWD: 0.5,
@@ -37,14 +37,14 @@ angular.module('MarvelJSApp.conclusionrwd', [])
 		}
 	  };
 	var ob  = {};
-	for(var rdos in $scope.evaledList){
-		var ename =$scope.evaledList[rdos].name;
+	for(var rdos in this.evaledList){
+		var ename =this.evaledList[rdos].name;
 		var sum = 0;
-		for (var vals in $scope.conclusionList) {
-			sum = sum + $scope.conclusionList[vals][ename];
+		for (var vals in this.conclusionList) {
+			sum = sum + this.conclusionList[vals][ename];
 		}
 		ob[ename] = Math.round(sum*10)/10;
 	}
-	$scope.resultSum = ob;
+	this.resultSum = ob;
 });
 

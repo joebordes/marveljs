@@ -3,8 +3,8 @@
  */
 
 angular.module('MarvelJSApp.conclusiongrid', [])
-.controller('ConclusionController',function($scope, $i18next) {
-	$scope.evaledList = [
+.controller('ConclusionController',function($i18next) {
+	this.evaledList = [
 	  {
 		name: 'angularjs_datatables',
 		url: 'http://l-lin.github.io/angular-datatables/#/welcome'
@@ -22,7 +22,7 @@ angular.module('MarvelJSApp.conclusiongrid', [])
 		url: 'http://adaptv.github.io/adapt-strap/',
 	  }
 	];
-	$scope.conclusionList = {
+	this.conclusionList = {
 		ajsnative: {
 			angularjs_datatables: 0.5,
 			SmartTables: 1,
@@ -91,14 +91,14 @@ angular.module('MarvelJSApp.conclusiongrid', [])
 		}
 	  };
 	var ob  = {};
-	for(var rdos in $scope.evaledList){
-		var ename =$scope.evaledList[rdos].name;
+	for(var rdos in this.evaledList){
+		var ename =this.evaledList[rdos].name;
 		var sum = 0;
-		for (var vals in $scope.conclusionList) {
-			sum = sum + $scope.conclusionList[vals][ename];
+		for (var vals in this.conclusionList) {
+			sum = sum + this.conclusionList[vals][ename];
 		}
 		ob[ename] = Math.round(sum*10)/10;
 	}
-	$scope.resultSum = ob;
+	this.resultSum = ob;
 });
 

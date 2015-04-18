@@ -3,34 +3,34 @@
  */
 
 angular.module('MarvelJSApp.config', [])
-.controller('ConfigController',function($scope, $i18next, $filter, marvelAPIservice, marvelAPIInvalidKeys) {
-	$scope.langs = [ {
+.controller('ConfigController',function($i18next, $filter, marvelAPIservice, marvelAPIInvalidKeys) {
+	this.langs = [ {
 		name : i18n.t('English'),
 		code : 'en'
 	}, {
 		name : i18n.t('Spanish'),
 		code : 'es'
 	}];
-	$scope.changeLanguage = function (lng) {
+	this.changeLanguage = function (lng) {
 		$i18next.options.lng=lng.code;
 	};
-	var found = $filter('getById')($scope.langs, $i18next.options.lng, 'code');
+	var found = $filter('getById')(this.langs, $i18next.options.lng, 'code');
 	if (found!=null) {
-		$scope.currentLang = found;
+		this.currentLang = found;
 	} else {
-		$scope.currentLang = $scope.langs[0];
+		this.currentLang = this.langs[0];
 	}
-	$scope.mvpublickey = marvelAPIservice.getPublicKey();
-	$scope.mvprivatekey = marvelAPIservice.getPrivateKey();
-	$scope.$watch("mvpublickey", function(newval, oldval){
+	this.mvpublickey = marvelAPIservice.getPublicKey();
+	this.mvprivatekey = marvelAPIservice.getPrivateKey();
+	this.$watch("mvpublickey", function(newval, oldval){
 		marvelAPIservice.setPublicKey(newval);
 		marvelAPIservice.setConfigured();
 	});
-	$scope.$watch("mvprivatekey", function(newval, oldval){
+	this.$watch("mvprivatekey", function(newval, oldval){
 		marvelAPIservice.setPrivateKey(newval);
 		marvelAPIservice.setConfigured();
 	});
-	$scope.MarvelAPIConfigured = marvelAPIservice.isConfigured();
-	$scope.MarvelAPIKeys = marvelAPIInvalidKeys.hasInvalidKeys();
+	this.MarvelAPIConfigured = marvelAPIservice.isConfigured();
+	this.MarvelAPIKeys = marvelAPIInvalidKeys.hasInvalidKeys();
 });
 

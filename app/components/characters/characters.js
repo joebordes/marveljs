@@ -3,25 +3,25 @@
  */
 
 angular.module('MarvelJSApp.characters', [])
-.controller('CharactersController',function($scope, $i18next, marvelAPIservice) {
-	$scope.characterList = [];
-	$scope.myPageItemsCount = 0;
-	$scope.myItemsTotalCount = 0;
+.controller('CharactersController',function($i18next, marvelAPIservice) {
+	this.characterList = [];
+	this.myPageItemsCount = 0;
+	this.myItemsTotalCount = 0;
 	marvelAPIservice.getCharacters().success(function(response) {
-		$scope.myPageItemsCount = response.data.count;
-		$scope.myItemsTotalCount = response.data.total;
-		$scope.characterList = response.data.results;
+		this.myPageItemsCount = response.data.count;
+		this.myItemsTotalCount = response.data.total;
+		this.characterList = response.data.results;
 	});
-	$scope.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+	this.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
 		marvelAPIservice.getCharacters(currentPage * pageItems, pageItems).success(function(response) {
-			$scope.myPageItemsCount = response.data.count;
-			$scope.myItemsTotalCount = response.data.total;
-			$scope.characterList = response.data.results;
+			this.myPageItemsCount = response.data.count;
+			this.myItemsTotalCount = response.data.total;
+			this.characterList = response.data.results;
 		});
 	};
-	$scope.mySelectedItems = [];
-	$scope.$watch("mySelectedItems.length", function(newLength){
-	  console.log($scope.mySelectedItems);
+	this.mySelectedItems = [];
+	this.$watch("mySelectedItems.length", function(newLength){
+	  console.log(this.mySelectedItems);
 	});
 });
 
