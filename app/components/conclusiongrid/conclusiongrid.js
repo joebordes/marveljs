@@ -3,7 +3,7 @@
  */
 
 angular.module('MarvelJSApp.conclusiongrid', [])
-.controller('ConclusionController',function($i18next) {
+.controller('ConclusiongridController',function($i18next) {
 	this.evaledList = [
 	  {
 		name: 'angularjs_datatables',

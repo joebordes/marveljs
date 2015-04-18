@@ -1,20 +1,20 @@
 <p>
 <label for="mvpublickey" class="col-md-3"  style="clear: left;">{{'Change language to'|i18next}}:</label>
 <select 
-ng-model="currentLang"
-ngSelected="currentLang"
-ng-options="lng.name for lng in langs track by lng.code"
-ng-change="changeLanguage(currentLang);"></select><br>
+ng-model="config.currentLang"
+ngSelected="config.currentLang"
+ng-options="lng.name for lng in config.langs track by lng.code"
+ng-change="changeLanguage(config.currentLang);"></select><br>
 </p>
 <p>
 <label for="mvpublickey" class="col-md-3" style="clear: left;">{{'Marvel Public Key' | i18next}}</label>
-<input name="mvpublickey" id ="mvpublickey" type=text ng-model="mvpublickey" class="col-md-5">
+<input name="mvpublickey" id ="mvpublickey" type=text ng-model="config.mvpublickey" ng-change="config.changemvpublickey()" class="col-md-5">
 <label for="mvprivatekey" class="col-md-3" style="clear: left;">{{'Marvel Private Key' | i18next}}</label>
-<input name="mvprivatekey" id ="mvprivatekey" type=text ng-model="mvprivatekey" class="col-md-5">
-<div class="col-md-offset-3 col-md-9" style="clear: left;" ng-hide="MarvelAPIConfigured">
+<input name="mvprivatekey" id ="mvprivatekey" type=text ng-model="config.mvprivatekey" ng-change="config.changemvprivatekey()" class="col-md-5">
+<div class="col-md-offset-3 col-md-9" style="clear: left;" ng-hide="config.MarvelAPIConfigured">
   <alert type="danger" ng-bind-html="'MarvelKeyNotSet' | i18next"></alert>
 </div>
-<div class="col-md-offset-3 col-md-9" style="clear: left;" ng-show="MarvelAPIKeys">
+<div class="col-md-offset-3 col-md-9" style="clear: left;" ng-show="config.MarvelAPIKeys">
   <alert type="danger" ng-bind-html="'MarvelAPIInvalidKeys' | i18next"></alert>
 </div>
 <span class="col-md-offset-3 col-md-9" style="clear: left;">{{'MarvelKeyNotSaved' | i18next}}</span>

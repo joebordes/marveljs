@@ -3,15 +3,15 @@
   <nav id="secondary" class="main-nav">
     <div class="comic-picture">
       <div class="avatar">
-        <img ng-show="comic" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" />
-        {{comic.title}} {{comic.series.name}}
+        <img ng-show="comic.comic" src="{{comic.comic.thumbnail.path}}.{{comic.comic.thumbnail.extension}}" />
+        {{comic.comic.title}} {{comic.comic.series.name}}
       </div>
     </div>
     <div class="comic-status">
-      Issue: {{comic.issueNumber}}   <br/>
-      Pages: {{comic.pageCount}}<br/>
-      ISBN: {{comic.isbn}}<br/>
-      <a href="{{comic.urls[0].url}}" target="_blank">More Information...</a>
+      Issue: {{comic.comic.issueNumber}}   <br/>
+      Pages: {{comic.comic.pageCount}}<br/>
+      ISBN: {{comic.comic.isbn}}<br/>
+      <a href="{{comic.comic.urls[0].url}}" target="_blank">More Information...</a>
     </div>
   </nav>
 
@@ -25,11 +25,10 @@
           <td>Name</td> <td>Role</td>
         </tr>
         <tr ng-repeat="creator in creators">
-          <td>{{creator.name}}</td>
-          <td>{{creator.role}}</td>
+          <td>{{comic.creator.name}}</td>
+          <td>{{comic.creator.role}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-
 </section>

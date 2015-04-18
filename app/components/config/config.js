@@ -22,14 +22,14 @@ angular.module('MarvelJSApp.config', [])
 	}
 	this.mvpublickey = marvelAPIservice.getPublicKey();
 	this.mvprivatekey = marvelAPIservice.getPrivateKey();
-	this.$watch("mvpublickey", function(newval, oldval){
+	this.changemvprivatekey = function() {
+		marvelAPIservice.setPrivateKey(this.mvprivatekey);
+		marvelAPIservice.setConfigured();
+	};
+	this.changemvpublickey = function() {
 		marvelAPIservice.setPublicKey(newval);
 		marvelAPIservice.setConfigured();
-	});
-	this.$watch("mvprivatekey", function(newval, oldval){
-		marvelAPIservice.setPrivateKey(newval);
-		marvelAPIservice.setConfigured();
-	});
+	};
 	this.MarvelAPIConfigured = marvelAPIservice.isConfigured();
 	this.MarvelAPIKeys = marvelAPIInvalidKeys.hasInvalidKeys();
 });

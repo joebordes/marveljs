@@ -26,8 +26,8 @@ angular.module('MarvelJSApp',
 				component : 'comics'
 			},
 			{
-				path : 'partials/comic.html',
-				controller : 'comicCtrl'
+				path : '/comic/:id',
+				component : 'comic'
 			},
 			{
 				path : '/characters',

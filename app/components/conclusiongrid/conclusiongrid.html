@@ -5,9 +5,9 @@
 <table class="table table-striped table-responsive">
 <tr>
 	<th></th>
-	<th ng-repeat="evaled in evaledList"><a href="{{evaled.url}}">{{evaled.name}}</a></th>
+	<th ng-repeat="evaled in conclusiongrid.evaledList"><a href="{{evaled.url}}">{{evaled.name}}</a></th>
 </tr>
-<tr ng-repeat="(key, val) in conclusionList">
+<tr ng-repeat="(key, val) in conclusiongrid.conclusionList">
 	<td><b>{{key}}</b></td>
 	<td align="center">{{val.angularjs_datatables}}</td>
 	<td align=center>{{val.SmartTables}}</td>
@@ -16,7 +16,7 @@
 </tr>
 <tr>
 	<td align=center><b>Result:</b></td>
-	<td align=center ng-repeat="evaled in evaledList"><b>{{resultSum[evaled.name]}}</b></td>
+	<td align=center ng-repeat="evaled in conclusiongrid.evaledList"><b>{{conclusiongrid.resultSum[evaled.name]}}</b></td>
 </tr>
 </table>
 </div>

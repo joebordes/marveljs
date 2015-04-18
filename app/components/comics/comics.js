@@ -20,8 +20,5 @@ angular.module('MarvelJSApp.comics', [])
 		});
 	};
 	this.mySelectedItems = [];
-	this.$watch("mySelectedItems.length", function(newLength){
-	  console.log(this.mySelectedItems);
-	});
 });
 

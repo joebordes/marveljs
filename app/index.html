@@ -21,11 +21,11 @@
 </head>
 <body>
 <div id="wrapper" ng-app="MarvelJSApp">
-<div ng-controller="navigationCtrl">
-<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0"  ng-include="'partials/navtop.html'"></nav>
-<nav class="navbar-default navbar-side" role="navigation" ng-include="'partials/navside.html'"></nav>
+<div ng-controller="NavigationController">
+<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0"  ng-include="'components/navigation/navtop.html'"></nav>
+<nav class="navbar-default navbar-side" role="navigation" ng-include="'components/navigation/navside.html'"></nav>
 </div>
-<div id="page-wrapper" class="container-fluid"><ng-view></ng-view></div>
+<div id="page-wrapper" class="container-fluid" ng-viewport></div>
 </div>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

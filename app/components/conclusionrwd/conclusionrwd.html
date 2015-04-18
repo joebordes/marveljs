@@ -5,16 +5,16 @@
 <table class="table table-striped table-responsive">
 <tr>
 	<th></th>
-	<th ng-repeat="evaled in evaledList"><a href="{{evaled.url}}">{{evaled.name}}</a></th>
+	<th ng-repeat="evaled in conclusionrwd.evaledList"><a href="{{evaled.url}}">{{evaled.name}}</a></th>
 </tr>
-<tr ng-repeat="(key, val) in conclusionList">
+<tr ng-repeat="(key, val) in conclusionrwd.conclusionList">
 	<td><b>{{key}}</b></td>
 	<td align="center">{{val.Tablesaw}}</td>
 	<td align=center>{{val.RWD}}</td>
 </tr>
 <tr>
 	<td align=center><b>Result:</b></td>
-	<td align=center ng-repeat="evaled in evaledList"><b>{{resultSum[evaled.name]}}</b></td>
+	<td align=center ng-repeat="evaled in conclusionrwd.evaledList"><b>{{conclusionrwd.resultSum[evaled.name]}}</b></td>
 </tr>
 </table>
 </div>

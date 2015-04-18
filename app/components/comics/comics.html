@@ -1,9 +1,9 @@
 <h2>Comics</h2>
 <div class="table-responsive" data-pattern="priority-columns" data-add-focus-btn="" rwdtablepatterns>
-	<table tr-ng-grid="" items="comicsList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
-	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
+	<table tr-ng-grid="" items="comics.comicsList" page-items="5" selected-items="comics.mySelectedItems" selection-mode="MultiRow"
+	 page-items="comics.myPageItemsCount" total-items="comics.myItemsTotalCount" 
 	 class="table table-striped table-bordered table-hover"
-	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+	 on-data-required="comics.onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
 		<thead>
 			<tr>
 				<th field-name="id" display-name="{{'Comic' | i18next}}"
