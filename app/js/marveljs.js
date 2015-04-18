@@ -68,7 +68,7 @@ angular.module('MarvelJSApp',
 		]);
 		$rootScope.$on('$routeChangeStart', function (ev, next, curr) {
 		  if (next.$$route) {
-			if (!marvelAPIservice.isConfigured() || marvelAPIInvalidKeys.hasInvalidKeys()) {
+			if ((!marvelAPIservice.isConfigured() || marvelAPIInvalidKeys.hasInvalidKeys()) && next.$$route.originalPath != '/conclusiongrid' && next.$$route.originalPath != '/conclusionrwd') {
 				$location.path('/config');
 			}
 		  }
