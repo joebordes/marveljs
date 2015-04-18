@@ -7,16 +7,12 @@ angular.module('MarvelJSApp.comics', [])
 	this.comicsList = [];
 	this.myPageItemsCount = 0;
 	this.myItemsTotalCount = 0;
-	marvelAPIservice.getComics().success(function(response) {
-		this.myPageItemsCount = response.data.count;
-		this.myItemsTotalCount = response.data.total;
-		this.comicsList = response.data.results;
-	});
+	var localthis = this;
 	this.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
 		marvelAPIservice.getComics(currentPage * pageItems, pageItems).success(function(response) {
-			this.myPageItemsCount = response.data.count;
-			this.myItemsTotalCount = response.data.total;
-			this.comicsList = response.data.results;
+			localthis.myPageItemsCount = response.data.count;
+			localthis.myItemsTotalCount = response.data.total;
+			localthis.comicsList = response.data.results;
 		});
 	};
 	this.mySelectedItems = [];

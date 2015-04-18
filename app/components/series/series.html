@@ -1,8 +1,8 @@
 <h2>Series</h2>
 <div class="table-responsive">
-	<table tr-ng-grid="" items="seriesList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
-	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
-	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+	<table tr-ng-grid="" items="series.seriesList" page-items="5" selected-items="series.mySelectedItems" selection-mode="MultiRow"
+	 page-items="series.myPageItemsCount" total-items="series.myItemsTotalCount" 
+	 on-data-required="series.onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
 		<thead>
 			<tr>
 				<th field-name="id" display-name="{{'Image' | i18next}}"

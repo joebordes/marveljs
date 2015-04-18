@@ -1,7 +1,7 @@
 <h2>{{'Characters' | i18next}}</h2>
-	<table tr-ng-grid="" items="characterList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
-	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
-	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)"
+	<table tr-ng-grid="" items="characters.characterList" page-items="5" selected-items="characters.mySelectedItems" selection-mode="MultiRow"
+	 page-items="characters.myPageItemsCount" total-items="characters.myItemsTotalCount" 
+	 on-data-required="characters.onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)"
 	 class="tablesaw tablesaw-columntoggle" tablesaw data-mode="columntoggle" data-minimap>
 		<thead>
 			<tr>

@@ -1,8 +1,8 @@
 <h2>Stories</h2>
 <div class="table-responsive">
-	<table tr-ng-grid="" items="storiesList" page-items="5" selected-items="mySelectedItems" selection-mode="MultiRow"
-	 page-items="myPageItemsCount" total-items="myItemsTotalCount" 
-	 on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+	<table tr-ng-grid="" items="stories.storiesList" page-items="5" selected-items="stories.mySelectedItems" selection-mode="MultiRow"
+	 page-items="stories.myPageItemsCount" total-items="stories.myItemsTotalCount" 
+	 on-data-required="stories.onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
 		<thead>
 			<tr>
 				<th field-name="id" display-name="{{'Comic' | i18next}}"

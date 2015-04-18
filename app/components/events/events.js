@@ -7,21 +7,14 @@ angular.module('MarvelJSApp.events', [])
 	this.eventsList = [];
 	this.myPageItemsCount = 0;
 	this.myItemsTotalCount = 0;
-	marvelAPIservice.getEvents().success(function(response) {
-		this.myPageItemsCount = response.data.count;
-		this.myItemsTotalCount = response.data.total;
-		this.eventsList = response.data.results;
-	});
+	var localthis = this;
 	this.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
 		marvelAPIservice.getEvents(currentPage * pageItems, pageItems).success(function(response) {
-			this.myPageItemsCount = response.data.count;
-			this.myItemsTotalCount = response.data.total;
-			this.eventsList = response.data.results;
+			localthis.myPageItemsCount = response.data.count;
+			localthis.myItemsTotalCount = response.data.total;
+			localthis.eventsList = response.data.results;
 		});
 	};
 	this.mySelectedItems = [];
-	this.$watch("mySelectedItems.length", function(newLength){
-	  console.log(this.mySelectedItems);
-	});
 });
 

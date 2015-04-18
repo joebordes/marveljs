@@ -7,21 +7,14 @@ angular.module('MarvelJSApp.stories', [])
 	this.storiesList = [];
 	this.myPageItemsCount = 0;
 	this.myItemsTotalCount = 0;
-	marvelAPIservice.getStories().success(function(response) {
-		this.myPageItemsCount = response.data.count;
-		this.myItemsTotalCount = response.data.total;
-		this.storiesList = response.data.results;
-	});
+	var localthis = this;
 	this.onServerSideItemsRequested = function(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
 		marvelAPIservice.getStories(currentPage * pageItems, pageItems).success(function(response) {
-			this.myPageItemsCount = response.data.count;
-			this.myItemsTotalCount = response.data.total;
-			this.storiesList = response.data.results;
+			localthis.myPageItemsCount = response.data.count;
+			localthis.myItemsTotalCount = response.data.total;
+			localthis.storiesList = response.data.results;
 		});
 	};
 	this.mySelectedItems = [];
-	this.$watch("mySelectedItems.length", function(newLength){
-	  console.log(this.mySelectedItems);
-	});
 });
 
