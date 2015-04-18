@@ -13,7 +13,7 @@ angular.module('MarvelJSApp.filters', [])
 			}
 		}
 		return null;
-	}
+	};
 })
 .filter('interpolate', [ 'version', function(version) {
 	return function(text) {
